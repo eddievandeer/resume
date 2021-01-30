@@ -1,0 +1,5 @@
+export const SET_PERSONAL_INFO = 'SET_PERSONAL_INFO'
+
+export const SET_SKILLS = 'SET_SKILLS'
+
+export const SET_EXPERIENCES = 'SET_EXPERIENCES'
