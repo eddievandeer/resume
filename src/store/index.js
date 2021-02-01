@@ -1,11 +1,12 @@
 import { createStore } from 'vuex'
-import { SET_PERSONAL_INFO, SET_SKILLS } from './mutation-types'
+import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, REMOVE_PART, RESTORE_ALL } from './mutation-types'
 
 export default createStore({
     state: {
         personalInfo: null,
         skills: null,
-        experiences: null
+        experiences: null,
+        parts: ['my-skills', 'my-experiences']
     },
     mutations: {
         [SET_PERSONAL_INFO](state, info) {
@@ -16,6 +17,18 @@ export default createStore({
         },
         [SET_EXPERIENCES](state, experiences) {
             state.experiences = experiences
+        },
+        [SET_PARTS](state, parts) {
+            state.parts = parts
+        },
+        [REMOVE_PART](state, index) {
+            state.parts.splice(index, 1)
+        },
+        [RESTORE_ALL](state) {
+            state.personalInfo = null
+            state.skills = null
+            state.experiences = null
+            state.parts = ['my-skills', 'my-experiences']
         }
     },
     actions: {},
