@@ -3,9 +3,22 @@ import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, REMOVE_PART,
 
 export default createStore({
     state: {
-        personalInfo: null,
-        skills: null,
-        experiences: null,
+        personalInfo: {
+            name: "",
+            image: "",
+            education: {
+                university: "",
+                major: ""
+            },
+            github: "",
+            blog: "",
+            contact: {
+                email: "",
+                tel: ""
+            }
+        },
+        skills: [],
+        experiences: [],
         parts: ['my-skills', 'my-experiences']
     },
     mutations: {
