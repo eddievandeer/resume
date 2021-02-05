@@ -1,1 +1,27 @@
-.section-header {}
+.btn {
+    border-radius: 4px;
+    margin: 0;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    transition: .1s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.btn.normal {
+    color: #606266;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+
+    &:hover {
+        color: #409eff;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+    }
+
+    &:active {
+        color: #3a8ee6;
+        border-color: #3a8ee6;
+    }
+}
