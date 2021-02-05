@@ -12,7 +12,7 @@ export function LoadImage(el, target) {
 
     reader.readAsDataURL(imageFile); // 发起异步请求，读取文件
     reader.onload = function () {
-        console.log(typeof this.result);
+        // console.log(typeof this.result);
         target.value = this.result
     };
 }
