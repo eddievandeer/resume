@@ -6,24 +6,49 @@ import copy from '../utils/copy'
 export default createStore({
     state: {
         personalInfo: {
-            name: "",
-            image: "",
-            gender: "",
-            job: "",
+            name: '姓名',
+            image: '/images/avatar.png',
+            gender: '输入性别',
+            job: '求职岗位',
             education: {
-                university: "",
-                major: ""
+                university: '毕业院校',
+                major: '所学专业'
             },
-            github: "",
-            blog: "",
+            github: 'GitHub主页',
+            blog: '博客网站',
             contact: {
-                email: "",
-                tel: ""
+                email: '联系邮箱',
+                tel: '联系电话'
             }
         },
-        skills: [],
-        experiences: [],
-        parts: ['my-skills', 'my-experiences']
+        skills: [{
+            type: "类型",
+            skill: [
+                {
+                    title: "标题",
+                    descriptions: [
+                        "描述"
+                    ]
+                }
+            ]
+        }],
+        experiences: [
+            {
+                type: "类型",
+                details: [{
+                    source: "",
+                    title: "标题",
+                    descriptions: [
+                        "描述"
+                    ]
+                }
+                ]
+            }
+        ],
+        parts: ['my-skills', 'my-experiences'],
+        style: {
+            color: ''
+        }
     },
     mutations: {
         [SET_PERSONAL_INFO](state, info) {
@@ -36,9 +61,11 @@ export default createStore({
             }
         },
         [SET_SKILLS](state, skills) {
+            state.skills.splice(0, state.skills.length)
             state.skills.push(...skills)
         },
         [SET_EXPERIENCES](state, experiences) {
+            state.experiences.splice(0, state.experiences.length)
             state.experiences.push(...experiences)
         },
         [SET_PARTS](state, parts) {
