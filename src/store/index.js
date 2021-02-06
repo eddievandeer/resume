@@ -22,24 +22,24 @@ export default createStore({
             }
         },
         skills: [{
-            type: "类型",
+            type: '类型',
             skill: [
                 {
-                    title: "标题",
+                    title: '标题',
                     descriptions: [
-                        "描述"
+                        '描述'
                     ]
                 }
             ]
         }],
         experiences: [
             {
-                type: "类型",
+                type: '类型',
                 details: [{
-                    source: "",
-                    title: "标题",
+                    source: '',
+                    title: '标题',
                     descriptions: [
-                        "描述"
+                        '描述'
                     ]
                 }
                 ]
@@ -77,17 +77,17 @@ export default createStore({
         },
         [RESTORE_ALL](state) {
             copy(state.personalInfo, {
-                name: "",
-                image: "",
+                name: '',
+                image: '',
                 education: {
-                    university: "",
-                    major: ""
+                    university: '',
+                    major: ''
                 },
-                github: "",
-                blog: "",
+                github: '',
+                blog: '',
                 contact: {
-                    email: "",
-                    tel: ""
+                    email: '',
+                    tel: ''
                 }
             })
             state.skills.splice(0, state.skills.length)
