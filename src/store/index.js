@@ -8,6 +8,8 @@ export default createStore({
         personalInfo: {
             name: "",
             image: "",
+            gender: "",
+            job: "",
             education: {
                 university: "",
                 major: ""
@@ -25,7 +27,13 @@ export default createStore({
     },
     mutations: {
         [SET_PERSONAL_INFO](state, info) {
-            copy(state.personalInfo, info)
+            if (info.key) {
+                state.personalInfo[info.key] = info.value
+            }
+            else {
+                copy(state.personalInfo, info)
+                console.log('copy object');
+            }
         },
         [SET_SKILLS](state, skills) {
             state.skills.push(...skills)
@@ -41,7 +49,7 @@ export default createStore({
             state.parts.splice(index, 1)
         },
         [RESTORE_ALL](state) {
-            state.personalInfo = {
+            copy(state.personalInfo, {
                 name: "",
                 image: "",
                 education: {
@@ -54,10 +62,11 @@ export default createStore({
                     email: "",
                     tel: ""
                 }
-            }
-            state.skills = []
-            state.experiences = []
-            state.parts = ['my-skills', 'my-experiences']
+            })
+            state.skills.splice(0, state.skills.length)
+            state.experiences.splice(0, state.experiences.length)
+            state.parts.splice(0, state.parts.length)
+            state.parts.push('my-skills', 'my-experiences')
         }
     },
     actions: {},
