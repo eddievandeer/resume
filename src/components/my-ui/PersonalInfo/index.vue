@@ -43,13 +43,13 @@
         flex: 1;
         // background-color: #C0E3E7;
         color: white;
-        background-color: #232240;
+        // background-color: #232240;
         display: flex;
         justify-content: flex-start;
         align-items: center;
 
         .info-image {
-            color: #ccc;
+            color: #e2e2e2;
             font-size: 14px;
             display: flex;
             flex-direction: column;
@@ -72,18 +72,10 @@
                 }
             }
 
-            // img {
-            //     width: 8rem;
-            //     height: 8rem;
-            //     border-radius: 50%;
-            //     margin-bottom: .6rem;
-            //     object-fit: cover;
-            // }
-
             span {
                 color: white;
                 font-size: 24px;
-                letter-spacing: 1px;
+                letter-spacing: 3px;
             }
         }
 
