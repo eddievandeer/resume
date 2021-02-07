@@ -1,7 +1,12 @@
 <template>
-    <input type="file" id="image">
-    <button class="btn normal" @click="doLoad">上传</button>
-    <!-- <img :src="imageURL" v-if="imageURL.length > 0"> -->
+    <div class="upload-image">
+        <label for="image" class="btn normal upload-btn">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span>上传图片</span>
+        </label>
+        <input type="file" id="image" style="display: none" @change="doLoad"
+            accept="image/gif, image/jpeg, image/png" />
+    </div>
 </template>
 
 <script>
@@ -46,5 +51,15 @@
 </script>
 
 <style lang="scss" scoped>
+    .upload-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            font-size: 26px;
+        }
+    }
 
 </style>
