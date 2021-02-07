@@ -9,3 +9,5 @@ export const SET_PARTS = 'SET_PARTS'
 export const REMOVE_PART = 'REMOVE_PART'
 
 export const RESTORE_ALL = 'RESTORE_ALL'
+
+export const SET_COLOR = 'SET_COLOR'

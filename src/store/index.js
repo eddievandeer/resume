@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, REMOVE_PART, RESTORE_ALL } from './mutation-types'
+import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, REMOVE_PART, RESTORE_ALL, SET_COLOR } from './mutation-types'
 
 import copy from '../utils/copy'
 
@@ -46,8 +46,10 @@ export default createStore({
             }
         ],
         parts: ['my-skills', 'my-experiences'],
-        style: {
-            color: ''
+        theme: {
+            type: 'normal',
+            color: 'green',
+            style: 'horizontal'
         }
     },
     mutations: {
@@ -94,6 +96,10 @@ export default createStore({
             state.experiences.splice(0, state.experiences.length)
             state.parts.splice(0, state.parts.length)
             state.parts.push('my-skills', 'my-experiences')
+        },
+        [SET_COLOR](state, color) {
+            console.log(color);
+            state.theme.color = color
         }
     },
     actions: {},
