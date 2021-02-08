@@ -1,10 +1,9 @@
 <template>
     <div class="resume-container">
-        <div id="pdfCentent" class="resume vertical">
-            <personal-info></personal-info>
+        <div id="pdfCentent" :class="['resume', theme.type, theme.style, theme.color]">
+            <personal-info :style="theme.style"></personal-info>
             <div class="pluggable">
-                <component :is="part" v-for="(part, index) in parts" :key="index"></component>
-                <button @click="remove(index)"><i class="fa fa-trash-o" aria-hidden="true"></i>移除</button>
+                <component v-for="(part, index) in parts" :key="index" :is="part"></component>
             </div>
         </div>
     </div>
@@ -12,22 +11,31 @@
 
 <script>
     import {
+        ref
+    } from 'vue'
+    import {
         useStore
     } from 'vuex'
+
+    import {
+        REMOVE_PART
+    } from '../store/mutation-types'
 
     export default {
         name: 'Container',
         setup() {
             const store = useStore()
             const parts = store.state.parts
+            const theme = store.state.theme
 
             function remove(index) {
-                store.commit('REMOVE_PART', index)
+                store.commit(REMOVE_PART, index)
             }
 
             return {
                 parts,
-                remove
+                remove,
+                theme
             }
         }
     }
@@ -37,6 +45,7 @@
 <style lang="scss" scoped>
     .resume-container {
         padding: 2rem 0;
+        box-sizing: border-box;
         background-color: #f5f5f6;
         flex: 3;
         display: flex;
@@ -44,10 +53,15 @@
         align-items: center;
 
         .resume {
-            width: 85%;
-            min-height: 100vh;
+            width: 840px;
+            min-height: 988px;
             background-color: white;
             display: flex;
+
+            .pluggable {
+                padding-bottom: 2rem;
+                flex: 3;
+            }
 
             &.horizontal {
                 flex-direction: row;
