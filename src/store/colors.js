@@ -1,3 +1,3 @@
-const colors = ['cyan', 'green', 'purple', 'orange']
+const colors = ['cyan', 'green', 'purple', 'orange', 'blue']
 
 export default colors

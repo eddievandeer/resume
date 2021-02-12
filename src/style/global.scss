@@ -24,12 +24,15 @@ body {
 }
 
 h1,
-h2,
+h2 {
+    margin: 0;
+}
+
 h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 .6rem 0;
+    margin: .4rem 0 0 0;
 }
 
 p {
@@ -39,7 +42,9 @@ p {
     line-height: 1.5rem;
 
     i {
+        font-size: 14px !important;
         margin-right: .4rem;
+        line-height: 1.5rem !important;
     }
 }
 
@@ -57,5 +62,62 @@ button {
     &:focus {
         border: none;
         outline: none;
+    }
+}
+
+input[type="text"],
+input[type="textarea"],
+input[type="password"] {
+    border: none;
+    outline: none;
+}
+
+.btn {
+    border-radius: 4px;
+    margin: 0;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    transition: .1s;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn.normal {
+    color: #606266;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+
+    &:hover {
+        color: #409eff;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+    }
+
+    &:active {
+        color: #3a8ee6;
+        border-color: #3a8ee6;
+    }
+}
+
+@import '../style/colors.scss';
+$colors: ("cyan": $cyan, "green": $green, "purple": $purple, "orange": $orange, "blue": $blue);
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.generator-wrapper {
+
+    @each $color,
+    $hash in $colors {
+
+        .#{$color} .info-wrapper,
+        .#{$color} .title,
+        .color-button.#{$color} {
+            background-color: $hash;
+        }
     }
 }
