@@ -4,16 +4,18 @@
             <i class="fa fa-print" aria-hidden="true"></i>
             <span>打印简历</span>
         </button>
-        <div class="file-name" v-if="show">
-            <div class="mask"></div>
-            <div class="file-name-container">
-                <div class="close" @click="show = !show"><i class="fa fa-times" aria-hidden="true"></i></div>
-                <input class="file-name-input" type="text" v-model="title" placeholder="请输入文件名">
-                <button class="print-btn btn normal" @click="doPrint('#pdfCentent', title)">
-                    <span>确认打印</span>
-                </button>
+        <transition name="fade">
+            <div class="file-name" v-if="show">
+                <div class="mask"></div>
+                <div class="file-name-container">
+                    <div class="close" @click="show = !show"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    <input class="file-name-input" type="text" v-model="title" placeholder="请输入文件名">
+                    <button class="print-btn btn normal" @click="doPrint('#pdfCentent', title)">
+                        <span>确认打印</span>
+                    </button>
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
@@ -117,7 +119,7 @@
                     box-sizing: border-box;
                     color: #606266;
                     padding: 0 15px;
-                    margin-bottom: 1rem;
+                    margin: .6rem 0 1rem 0;
                     transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
 
                     &:focus {
@@ -125,6 +127,22 @@
                     }
                 }
             }
+        }
+
+        .fade-leave-active {
+            transition: all .2s ease-in-out;
+        }
+
+        .fade-enter-active {
+            transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+
+        .fade-enter {
+            opacity: 1;
+        }
+
+        .fade-leave-to {
+            opacity: 0;
         }
     }
 
