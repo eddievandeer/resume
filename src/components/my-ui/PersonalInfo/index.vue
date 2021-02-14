@@ -7,7 +7,7 @@
             <span>{{info.name}}</span>
             {{info.job}}
         </div>
-        <info-detail v-if="info.name.length > 0" :info="info"></info-detail>
+        <info-detail :info="info"></info-detail>
     </div>
 </template>
 
@@ -50,7 +50,6 @@
 
         .info-image {
             color: #e2e2e2;
-            font-size: 14px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
