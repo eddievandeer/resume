@@ -1,6 +1,6 @@
 <template>
     <div class="skills-wrapper wrapper">
-        <h2 class="title">掌握技能</h2>
+        <h2 class="title"><i class="fa fa-cogs" aria-hidden="true"></i>掌握技能</h2>
         <skill-list></skill-list>
     </div>
 </template>
