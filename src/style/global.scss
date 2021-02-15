@@ -1,3 +1,5 @@
+@import '../style/colors.scss';
+
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -72,6 +74,28 @@ input[type="password"] {
     outline: none;
 }
 
+input[type="text"].console-input,
+input[type="textarea"].console-input,
+input[type="password"].console-input {
+    font-size: 16px;
+    font-family: Helvetica;
+    padding: .1rem 0;
+    line-height: 2.1rem;
+    letter-spacing: 1px;
+    color: #606266;
+    border-bottom: 1px solid #dcdfe6;
+
+    &:hover,
+    &:active,
+    &:focus {
+        border-bottom: 1px solid #409eff;
+    }
+
+    &::placeholder {
+        color: #C4C4CF;
+    }
+}
+
 .btn {
     border-radius: 4px;
     margin: 0;
@@ -102,9 +126,6 @@ input[type="password"] {
     }
 }
 
-@import '../style/colors.scss';
-$colors: ("cyan": $cyan, "green": $green, "purple": $purple, "orange": $orange, "blue": $blue);
-
 h3 {
     font-size: 1.2rem;
 }
@@ -114,8 +135,6 @@ h3 {
     @each $color,
     $hash in $colors {
 
-        .#{$color} .info-wrapper,
-        .#{$color} .title,
         .color-button.#{$color} {
             background-color: $hash;
         }
