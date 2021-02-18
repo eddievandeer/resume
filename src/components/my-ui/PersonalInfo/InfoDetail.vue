@@ -3,13 +3,13 @@
         <div class="info-detail-item introduction">
             <h2 class="title"><i class="fa fa-address-card-o" aria-hidden="true"></i>个人介绍</h2>
             <p>性别：{{info.gender}}</p>
-            <p>毕业院校：{{info.education.university}}</p>
-            <p>专业：{{info.education.major}}</p>
+            <p>毕业院校：{{info.university}}</p>
+            <p>专业：{{info.major}}</p>
         </div>
         <div class="info-detail-item contact">
             <h2 class="title"><i class="fa fa-envelope-o" aria-hidden="true"></i>联系方式</h2>
-            <p>邮箱：{{info.contact.email}}</p>
-            <p>电话：{{info.contact.tel}}</p>
+            <p>邮箱：{{info.email}}</p>
+            <p>电话：{{info.tel}}</p>
         </div>
         <div class="info-detail-item else">
             <h2 class="title"><i class="fa fa-at" aria-hidden="true"></i>其他</h2>
