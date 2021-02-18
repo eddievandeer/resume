@@ -10,16 +10,12 @@ export default createStore({
             image: '/images/avatar.png',
             gender: '输入性别',
             job: '求职岗位',
-            education: {
-                university: '毕业院校',
-                major: '所学专业'
-            },
+            university: '毕业院校',
+            major: '所学专业',
             github: 'GitHub主页',
             blog: '博客网站',
-            contact: {
-                email: '联系邮箱',
-                tel: '联系电话'
-            }
+            email: '联系邮箱',
+            tel: '联系电话'
         },
         skills: [{
             type: '类型',
@@ -48,7 +44,8 @@ export default createStore({
         parts: ['my-skills', 'my-experiences'],
         theme: {
             type: 'normal',
-            color: 'green',
+            color: 'cyan',
+            // style: 'vertical'
             style: 'horizontal'
         }
     },
