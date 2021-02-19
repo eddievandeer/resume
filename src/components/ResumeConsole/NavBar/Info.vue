@@ -1,0 +1,47 @@
+<template>
+    <div class="inputs">
+        <load-image style="margin-bottom: 1rem"></load-image>
+        <div class="input-item" v-for="(type, key) in inputTypes" :key="key">
+            <my-input :type="key">
+                <span>{{type}}</span>
+            </my-input>
+        </div>
+    </div>
+</template>
+
+<script>
+    import {
+        reactive
+    } from 'vue'
+    import MyInput from '../Input/MyInput'
+    import LoadImage from '../Load/LoadImage'
+
+    export default {
+        components: {
+            MyInput,
+            LoadImage
+        },
+        setup() {
+            const inputTypes = reactive({
+                name: '姓名',
+                job: '求职岗位',
+                gender: '输入性别',
+                university: '毕业院校',
+                major: '所学专业',
+                email: '联系邮箱',
+                tel: '联系电话',
+                github: 'GitHub主页',
+                blog: '博客网站'
+            })
+
+            return {
+                inputTypes
+            }
+        }
+    }
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
