@@ -97,7 +97,6 @@ input[type="password"].console-input {
 }
 
 .btn {
-    border-radius: 4px;
     margin: 0;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -111,6 +110,7 @@ input[type="password"].console-input {
 
 .btn.normal {
     color: #606266;
+    border-radius: 4px;
     background: #fff;
     border: 1px solid #dcdfe6;
 
@@ -123,6 +123,16 @@ input[type="password"].console-input {
     &:active {
         color: #3a8ee6;
         border-color: #3a8ee6;
+    }
+}
+
+.btn.menu {
+    color: #909399;
+    background-color: transparent;
+
+    &.active {
+        color: #303133;
+        border-bottom: 2px solid #409EFF;
     }
 }
 
