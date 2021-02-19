@@ -80,6 +80,7 @@
 
         .info-detail {
             min-width: 8rem;
+            display: flex;
             // flex: 7;
         }
 
@@ -87,12 +88,24 @@
             padding-top: 4rem;
             padding-bottom: 4rem;
             flex-direction: column;
+
+            .info-detail {
+                flex-direction: column;
+            }
         }
 
         &.vertical {
             padding-top: 1.2rem;
             padding-bottom: 0rem;
             flex-direction: row;
+            align-items: flex-end;
+
+            .info-detail {
+                flex-direction: row;
+                justify-content: flex-end;
+
+                margin-bottom: 0;
+            }
         }
     }
 
