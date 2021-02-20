@@ -2,7 +2,7 @@
     <div class="inputs">
         <load-image style="margin-bottom: 1rem"></load-image>
         <div class="input-item" v-for="(type, key) in inputTypes" :key="key">
-            <my-input :type="key">
+            <my-input :value="info[key]" @handleInput="handleInput(key, $event)">
                 <span>{{type}}</span>
             </my-input>
         </div>
@@ -13,15 +13,27 @@
     import {
         reactive
     } from 'vue'
+
+    import {
+        useStore
+    } from 'vuex'
+
+    import {
+        SET_PERSONAL_INFO
+    } from '../../../store/mutation-types'
+
     import MyInput from '../Input/MyInput'
     import LoadImage from '../Load/LoadImage'
-
     export default {
         components: {
             MyInput,
             LoadImage
         },
         setup() {
+            const store = useStore()
+
+            const info = store.state.personalInfo
+
             const inputTypes = reactive({
                 name: '姓名',
                 job: '求职岗位',
@@ -34,8 +46,17 @@
                 blog: '博客网站'
             })
 
+            const handleInput = (key, value) => {
+                store.commit(SET_PERSONAL_INFO, {
+                    key,
+                    value
+                })
+            }
+
             return {
-                inputTypes
+                info,
+                inputTypes,
+                handleInput
             }
         }
     }
