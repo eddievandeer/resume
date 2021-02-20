@@ -3,9 +3,9 @@
         <label class="console-input-label" :style="styleObject">
             <slot></slot>
         </label>
-        <button class="close-btn" @click="handleClear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
         <input type="text" class="console-input" :value="value" @input="handleInput" @focus="handleFocus"
             @blur="handleBlur">
+        <button class="close-btn" @click="handleClear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
     </div>
 </template>
 
@@ -96,6 +96,7 @@
         position: relative;
 
         .close-btn {
+            opacity: 0;
             color: #c0c4cc;
             background-color: transparent;
             position: absolute;
@@ -118,6 +119,13 @@
                 top: 1rem;
                 left: 13px;
                 font-size: 18px;
+            }
+        }
+
+        .console-input:hover,
+        .console-input:focus {
+            &+.close-btn {
+                opacity: 1;
             }
         }
     }
