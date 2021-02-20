@@ -50,6 +50,11 @@
             p {
                 color: white;
             }
+
+            p {
+                line-height: 1.2rem;
+                margin-bottom: .3rem;
+            }
         }
     }
 
