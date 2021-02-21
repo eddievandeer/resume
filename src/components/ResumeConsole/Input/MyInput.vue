@@ -12,6 +12,7 @@
 <script>
     import {
         reactive,
+        ref,
         watch
     } from 'vue'
 
@@ -21,6 +22,8 @@
             value: String
         },
         setup(props, context) {
+            const focus = ref(false)
+
             const styleObject = reactive({
                 top: '0',
                 fontSize: '14px',
@@ -35,7 +38,9 @@
                 if (haveContent(props.value)) {
                     toTop(styleObject)
                 } else {
-                    toBottom(styleObject)
+                    if (!focus.value) {
+                        toBottom(styleObject)
+                    }
                 }
             })
 
@@ -44,11 +49,13 @@
             }
 
             function handleFocus() {
+                focus.value = true
                 toTop(styleObject)
                 styleObject.color = '#409eff'
             }
 
             function handleBlur() {
+                focus.value = false
                 styleObject.color = '#a6a9b1'
                 if (haveContent(props.value)) {
                     return
@@ -122,11 +129,9 @@
             }
         }
 
-        .console-input:hover,
-        .console-input:focus {
-            &+.close-btn {
-                opacity: 1;
-            }
+        &:hover .close-btn,
+        .console-input:focus+.close-btn {
+            opacity: 1;
         }
     }
 
