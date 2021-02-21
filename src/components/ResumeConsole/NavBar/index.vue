@@ -5,7 +5,9 @@
                 :key="index" @click="show = index">{{text}}</button>
         </div>
         <div v-for="(component, index) in components" :key="index">
-            <component :is="component" v-if="index == show"></component>
+            <keep-alive>
+                <component :is="component" v-if="index == show"></component>
+            </keep-alive>
         </div>
     </div>
 </template>
@@ -30,7 +32,7 @@
 
             const components = ['info', 'skills', 'experiences']
 
-            const description = ['个人信息', '掌握技能', '项目经历']
+            const description = ['个人信息', '掌握技能', '项目经历', '主题设置']
 
             return {
                 show,
@@ -55,6 +57,10 @@
             font-size: 16px;
             box-sizing: border-box;
             transition: all .2s ease-in-out;
+
+            &:hover {
+                color: #303133;
+            }
         }
     }
 
