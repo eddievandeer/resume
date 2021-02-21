@@ -1,0 +1,91 @@
+<template>
+    <div :class="['drawer-wrapper', {'active': active}]">
+        <div class="drawer-title" @click.self="toggle">
+            <span>{{title}}</span>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </div>
+        <div class="drawer">
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
+<script>
+    import {
+        ref
+    } from 'vue'
+    import Transition from '../../../utils/transition'
+
+    export default {
+        props: {
+            title: String
+        },
+        setup() {
+            const transition = new Transition
+
+            const active = ref(true)
+
+            function toggle(e) {
+                console.log(active.value);
+                if (active.value) {
+                    transition.leave(e.target.parentNode.children[1])
+                } else {
+                    transition.enter(e.target.parentNode.children[1])
+                }
+                active.value = !active.value
+            }
+
+            return {
+                active,
+                toggle
+            }
+        }
+    }
+
+</script>
+
+<style lang="scss" scoped>
+    .drawer-wrapper {
+        width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        .drawer-title {
+            width: 100%;
+            height: 2rem;
+            color: #303133;
+            padding: .6rem 0;
+            border-bottom: 1px solid #ebeef5;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            span,
+            i {
+                pointer-events: none;
+            }
+
+            i {
+                margin-right: .5rem;
+                transition: transform .2s ease-in-out;
+            }
+        }
+
+        .drawer {
+            will-change: height;
+            padding-bottom: 1rem;
+            transition: all .2s ease-in-out;
+        }
+
+        &.active .drawer-title {
+            border-bottom: 1px solid transparent;
+
+            i {
+                transform: rotateZ(-90deg);
+            }
+        }
+    }
+
+</style>
