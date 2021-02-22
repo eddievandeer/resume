@@ -1,7 +1,7 @@
 <template>
     <div class="upload-image">
         <label for="image" class="btn normal upload-btn">
-            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-picture-o" aria-hidden="true"></i>
             <span>上传图片</span>
         </label>
         <input type="file" id="image" style="display: none" @change="doLoad"

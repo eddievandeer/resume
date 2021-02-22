@@ -1,7 +1,7 @@
 <template>
     <div class="upload-file">
         <label for="json" class="btn normal upload-btn">
-            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-cloud-upload" aria-hidden="true"></i>
             <span>上传数据(JSON)</span>
         </label>
         <input type="file" id="json" style="display: none" @change="doLoad" accept="application/json" />
