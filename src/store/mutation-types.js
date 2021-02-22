@@ -6,6 +6,18 @@ export const SET_EXPERIENCES = 'SET_EXPERIENCES'
 
 export const SET_PARTS = 'SET_PARTS'
 
+export const ADD_SKILL_ITEM = 'ADD_SKILL_ITEM'
+
+export const SET_SKILL_ITEM_TYPE = 'SET_SKILL_ITEM_TYPE'
+
+export const ADD_SKILL = 'ADD_SKILL'
+
+export const SET_SKILL_TITLE = 'SET_SKILL_TITLE'
+
+export const ADD_SKILL_DESCRIPTION = 'ADD_SKILL_DESCRIPTION'
+
+export const ADD_EXPERIENCE = 'ADD_EXPERIENCE'
+
 export const REMOVE_PART = 'REMOVE_PART'
 
 export const RESTORE_ALL = 'RESTORE_ALL'
