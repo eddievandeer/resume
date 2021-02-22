@@ -26,7 +26,6 @@
             const active = ref(true)
 
             function toggle(e) {
-                console.log(active.value);
                 if (active.value) {
                     transition.leave(e.target.parentNode.children[1])
                 } else {
@@ -53,7 +52,7 @@
         .drawer-title {
             width: 100%;
             height: 2rem;
-            color: #303133;
+            color: #409EFF;
             padding: .6rem 0;
             border-bottom: 1px solid #ebeef5;
             cursor: pointer;
