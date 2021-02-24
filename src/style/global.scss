@@ -69,14 +69,17 @@ button {
 
 input[type="text"],
 input[type="textarea"],
-input[type="password"] {
+input[type="password"],
+textarea {
     border: none;
     outline: none;
+    resize: none;
 }
 
 input[type="text"].console-input,
 input[type="textarea"].console-input,
-input[type="password"].console-input {
+input[type="password"].console-input,
+textarea.console-input {
     font-size: 16px;
     font-family: Helvetica;
     padding: .1rem 0;
@@ -95,6 +98,10 @@ input[type="password"].console-input {
     &::placeholder {
         color: #C4C4CF;
     }
+}
+
+textarea.console-input {
+    line-height: 1.5;
 }
 
 .btn {
