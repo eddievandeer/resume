@@ -4,7 +4,9 @@
             <slot></slot>
         </label>
         <input type="text" class="console-input" :value="value" @input="handleInput" @focus="handleFocus"
-            @blur="handleBlur">
+            @blur="handleBlur" v-if="type !== 'textarea'">
+        <textarea ref="textarea" class="console-input" :style="textareaCalcStyle" :value="value" @input="handleInput"
+            @focus="handleFocus" @blur="handleBlur" v-else style="margin-top: 20px;"></textarea>
         <button class="close-btn" @click="handleClear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
     </div>
 </template>
@@ -13,16 +15,31 @@
     import {
         reactive,
         ref,
-        watch
+        watch,
+        onMounted
     } from 'vue'
+
+    import calcTextareaHeight from '../../../utils/calcTextareaHeight'
+    import copy from '../../../utils/copy'
 
     export default {
         name: 'MyInput',
         props: {
-            value: String
+            value: String,
+            type: {
+                type: String,
+                default: 'text'
+            }
         },
         setup(props, context) {
             const focus = ref(false)
+
+            const textarea = ref(null)
+
+            const textareaCalcStyle = reactive({
+                height: "23.8px",
+                minHeight: "23.8px"
+            })
 
             const styleObject = reactive({
                 top: '0',
@@ -30,11 +47,16 @@
                 color: '#a6a9b1'
             })
 
-            if (!haveContent(props.value)) {
-                toBottom(styleObject)
-            }
+            onMounted(() => {
+                if (!haveContent(props.value)) {
+                    toBottom(styleObject)
+                }
+                if (props.type == 'textarea') {
+                    setTextareaHeight()
+                }
+            })
 
-            watch(() => props.value, () => {
+            watch(() => props.value, (newValue) => {
                 if (haveContent(props.value)) {
                     toTop(styleObject)
                 } else {
@@ -42,7 +64,19 @@
                         toBottom(styleObject)
                     }
                 }
+
+                if (props.type == 'textarea') {
+                    textarea.value.value = newValue
+                    setTextareaHeight()
+                }
             })
+
+            function setTextareaHeight() {
+                const textareaHeight = calcTextareaHeight(textarea.value)
+
+                if (textareaCalcStyle.height == textareaHeight.height) return
+                copy(textareaCalcStyle, textareaHeight)
+            }
 
             function handleInput(e) {
                 context.emit('handleInput', e.target.value)
@@ -72,7 +106,9 @@
                 handleInput,
                 handleFocus,
                 handleBlur,
-                handleClear
+                handleClear,
+                textareaCalcStyle,
+                textarea
             }
         }
     }
@@ -82,7 +118,7 @@
     }
 
     function toBottom(styleObject) {
-        styleObject.top = '30px'
+        styleObject.top = '25px'
         styleObject.fontSize = '16px'
     }
 
@@ -95,7 +131,7 @@
 
 <style lang="scss">
     .console-input-wrapper {
-        height: 3.4rem;
+        min-height: 3.4rem;
         margin-bottom: .8rem;
         display: flex;
         flex-direction: column;
