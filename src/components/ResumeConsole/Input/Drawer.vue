@@ -48,11 +48,12 @@
         width: 100%;
         overflow: hidden;
         box-sizing: border-box;
+        border-bottom: 1px solid transparent;
 
         .drawer-title {
             width: 100%;
             height: 2rem;
-            color: #409EFF;
+            color: #303133;
             padding: .6rem 0;
             border-bottom: 1px solid #ebeef5;
             cursor: pointer;
@@ -70,6 +71,10 @@
                 margin-right: .5rem;
                 transition: transform .2s ease-in-out;
             }
+
+            &:hover {
+                color: #409EFF;
+            }
         }
 
         .drawer {
@@ -78,11 +83,16 @@
             transition: all .2s ease-in-out;
         }
 
-        &.active .drawer-title {
-            border-bottom: 1px solid transparent;
+        &.active {
+            border-bottom: 1px solid #ebeef5;
 
-            i {
-                transform: rotateZ(-90deg);
+            .drawer-title {
+                color: #409EFF;
+                border-bottom: 1px solid transparent;
+
+                i {
+                    transform: rotateZ(-90deg);
+                }
             }
         }
     }
