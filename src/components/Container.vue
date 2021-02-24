@@ -50,7 +50,7 @@
         flex: 3;
         display: flex;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: flex-start;
 
         .resume {
             width: 840px;
@@ -59,16 +59,9 @@
             display: flex;
 
             .pluggable {
+                padding-top: .6rem;
                 padding-bottom: 2rem;
                 flex: 3;
-            }
-
-            &.horizontal {
-                flex-direction: row;
-            }
-
-            &.vertical {
-                flex-direction: column;
             }
         }
     }
