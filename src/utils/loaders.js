@@ -1,9 +1,14 @@
 export function LoadJSON(el, handler) {
     const reader = new FileReader()
-    const JSONFile = document.querySelector(el).files[0]
+
+    const file = document.querySelector(el)
+
+    const JSONFile = file.files[0]
 
     reader.readAsText(JSONFile, 'utf-8')
     reader.onload = handler
+
+    file.value = ''
 }
 
 export function LoadImage(el, target) {
