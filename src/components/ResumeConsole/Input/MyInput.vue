@@ -3,10 +3,11 @@
         <label class="console-input-label" :style="styleObject">
             <slot></slot>
         </label>
-        <input type="text" class="console-input" :value="value" @input="handleInput" @focus="handleFocus"
-            @blur="handleBlur" v-if="type !== 'textarea'">
-        <textarea ref="textarea" class="console-input" :style="textareaCalcStyle" :value="value" @input="handleInput"
-            @focus="handleFocus" @blur="handleBlur" v-else style="margin-top: 20px;"></textarea>
+        <input type="text" ref="input" class="console-input" :value="modelValue" @input="handleInput"
+            @change="handleChange" @focus="handleFocus" @blur="handleBlur" v-if="type !== 'textarea'">
+        <textarea ref="textarea" class="console-input" :style="textareaCalcStyle" :value="modelValue"
+            @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur" v-else
+            style="margin-top: 20px;"></textarea>
         <button class="close-btn" @click="handleClear"><i class="fa fa-times-circle-o" aria-hidden="true"></i></button>
     </div>
 </template>
@@ -16,7 +17,9 @@
         reactive,
         ref,
         watch,
-        onMounted
+        computed,
+        onMounted,
+        nextTick
     } from 'vue'
 
     import calcTextareaHeight from '../../../utils/calcTextareaHeight'
@@ -24,8 +27,9 @@
 
     export default {
         name: 'MyInput',
+        emits: ['update:modelValue', 'input', 'change'],
         props: {
-            value: String,
+            modelValue: String,
             type: {
                 type: String,
                 default: 'text'
@@ -34,7 +38,12 @@
         setup(props, context) {
             const focus = ref(false)
 
+            const input = ref(null)
+
             const textarea = ref(null)
+
+            const nativeInputValue = computed(() => (props.modelValue === null || props.modelValue === undefined) ? '' :
+                String(props.modelValue))
 
             const textareaCalcStyle = reactive({
                 height: "23.8px",
@@ -48,7 +57,7 @@
             })
 
             onMounted(() => {
-                if (!haveContent(props.value)) {
+                if (!haveContent(props.modelValue)) {
                     toBottom(styleObject)
                 }
                 if (props.type == 'textarea') {
@@ -56,8 +65,8 @@
                 }
             })
 
-            watch(() => props.value, (newValue) => {
-                if (haveContent(props.value)) {
+            watch(() => props.modelValue, (newValue) => {
+                if (haveContent(props.modelValue)) {
                     toTop(styleObject)
                 } else {
                     if (!focus.value) {
@@ -71,18 +80,34 @@
                 }
             })
 
-            function setTextareaHeight() {
+            watch(nativeInputValue, () => {
+                setNativeInputValue()
+            })
+
+            const setTextareaHeight = () => {
                 const textareaHeight = calcTextareaHeight(textarea.value)
 
                 if (textareaCalcStyle.height == textareaHeight.height) return
                 copy(textareaCalcStyle, textareaHeight)
             }
 
-            function handleInput(e) {
-                context.emit('handleInput', e.target.value)
+            const setNativeInputValue = () => {
+                if (!input || input.value === nativeInputValue.value) return
+                input.value = nativeInputValue.value
             }
 
-            function handleFocus() {
+            const handleInput = (event) => {
+                context.emit('input', event.target.value)
+                context.emit('update:modelValue', event.target.value)
+
+                nextTick(setNativeInputValue)
+            }
+
+            const handleChange = (event) => {
+                context.emit('change', event.target.value)
+            }
+
+            const handleFocus = () => {
                 focus.value = true
                 toTop(styleObject)
                 styleObject.color = '#409eff'
@@ -91,7 +116,7 @@
             function handleBlur() {
                 focus.value = false
                 styleObject.color = '#a6a9b1'
-                if (haveContent(props.value)) {
+                if (haveContent(props.modelValue)) {
                     return
                 }
                 toBottom(styleObject)
@@ -104,10 +129,12 @@
             return {
                 styleObject,
                 handleInput,
+                handleChange,
                 handleFocus,
                 handleBlur,
                 handleClear,
                 textareaCalcStyle,
+                input,
                 textarea
             }
         }
