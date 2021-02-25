@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, REMOVE_PART, RESTORE_ALL, SET_COLOR } from './mutation-types'
+import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, ADD_SKILL_ITEM, REMOVE_PART, RESTORE_ALL, SET_COLOR } from './mutation-types'
 
 import copy from '../utils/copy'
 
@@ -70,6 +70,9 @@ export default createStore({
         [SET_PARTS](state, parts) {
             state.parts.splice(0, state.parts.length)
             state.parts.push(parts)
+        },
+        [ADD_SKILL_ITEM](state, item) {
+            state.skills.pop(item)
         },
         [REMOVE_PART](state, index) {
             state.parts.splice(index, 1)
