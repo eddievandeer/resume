@@ -2,7 +2,7 @@
     <div class="inputs">
         <load-image style="margin-bottom: 1rem"></load-image>
         <div class="input-item" v-for="(type, key) in inputTypes" :key="key">
-            <my-input :value="info[key]" @handleInput="handleInput(key, $event)">
+            <my-input v-model="info[key]">
                 <span>{{type}}</span>
             </my-input>
         </div>
@@ -11,7 +11,8 @@
 
 <script>
     import {
-        reactive
+        reactive,
+        defineComponent
     } from 'vue'
 
     import {
@@ -24,7 +25,7 @@
 
     import MyInput from '../Input/MyInput'
     import LoadImage from '../Load/LoadImage'
-    export default {
+    export default defineComponent({
         components: {
             MyInput,
             LoadImage
@@ -59,7 +60,7 @@
                 handleInput
             }
         }
-    }
+    })
 
 </script>
 

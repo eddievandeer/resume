@@ -2,17 +2,16 @@
     <div class="inputs">
         <div v-for="(item, key1) in skills" :key="key1">
             <drawer :title="item.type">
-                <my-input v-model:value="item.type" @handleInput="handleAttribute(item, 'type', $event)">
+                <my-input v-model="item.type">
                     <span>{{skillItem.type}}</span>
                 </my-input>
                 <div class="input-item" v-for="(skill, key2) in item.skill" :key="key2">
-                    <my-input v-model:value="skill.title" @handleInput="handleAttribute(skill, 'title', $event)">
-                        <span>{{skillItem.skill[0].title}}</span>
+                    <my-input v-model="skill.title">
+                        <span>{{'标题'}}</span>
                     </my-input>
                     <div class="input-item">
                         <div v-for="(description, index) in skill.descriptions" :key="index">
-                            <my-input :value="description" @handleInput="handleArray(skill.descriptions, index, $event)"
-                                type="textarea">
+                            <my-input v-model="skill.descriptions[index]" type="textarea">
                                 <span>{{'描述'+(index+1)}}</span>
                             </my-input>
                         </div>
