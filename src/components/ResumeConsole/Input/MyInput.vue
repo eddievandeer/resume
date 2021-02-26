@@ -46,8 +46,8 @@
                 String(props.modelValue))
 
             const textareaCalcStyle = reactive({
-                height: "23.8px",
-                minHeight: "23.8px"
+                height: "0",
+                minHeight: "0"
             })
 
             const styleObject = reactive({
@@ -123,7 +123,8 @@
             }
 
             function handleClear() {
-                context.emit('handleInput', '')
+                context.emit('input', '')
+                context.emit('update:modelValue', '')
             }
 
             return {
