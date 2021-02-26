@@ -6,6 +6,10 @@
         </label>
         <input type="file" id="image" style="display: none" @change="doLoad"
             accept="image/gif, image/jpeg, image/png" />
+        或
+        <my-input v-model="inputURL">
+            <span>输入图片网址</span>
+        </my-input>
     </div>
 </template>
 
@@ -23,12 +27,20 @@
     import {
         LoadImage
     } from '../../../utils/loaders'
+    import MyInput from '../Input/MyInput.vue'
 
     export default {
         name: 'LoadImage',
+        components: {
+            MyInput
+        },
         setup() {
-            const imageURL = ref('')
             const store = useStore()
+
+            const imageURL = ref('')
+            const inputURL = ref('')
+
+            let timeout = null
 
             watch(imageURL, (newValue) => {
                 store.commit(SET_PERSONAL_INFO, {
@@ -37,13 +49,25 @@
                 })
             })
 
+            watch(inputURL, (newValue) => {
+                timeout && clearTimeout(timeout)
+
+                timeout = setTimeout(() => {
+                    store.commit(SET_PERSONAL_INFO, {
+                        value: newValue,
+                        key: 'image'
+                    })
+                }, 500)
+            })
+
             function doLoad() {
                 LoadImage('#image', imageURL)
             }
 
             return {
                 doLoad,
-                imageURL
+                imageURL,
+                inputURL
             }
         }
     }
@@ -51,14 +75,21 @@
 </script>
 
 <style lang="scss" scoped>
-    .upload-btn {
+    .upload-image {
+        color: #606266;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
 
-        i {
-            font-size: 26px;
+        .upload-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                font-size: 26px;
+            }
         }
     }
 
