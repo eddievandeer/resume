@@ -19,10 +19,6 @@
         useStore
     } from 'vuex'
 
-    import {
-        SET_PERSONAL_INFO
-    } from '../../../store/mutation-types'
-
     import MyInput from '../Input/MyInput'
     import LoadImage from '../Load/LoadImage'
     export default defineComponent({
@@ -47,17 +43,9 @@
                 blog: '博客网站'
             })
 
-            const handleInput = (key, value) => {
-                store.commit(SET_PERSONAL_INFO, {
-                    key,
-                    value
-                })
-            }
-
             return {
                 info,
-                inputTypes,
-                handleInput
+                inputTypes
             }
         }
     })
