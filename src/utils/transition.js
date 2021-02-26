@@ -13,7 +13,7 @@ class Transition {
     enter(el) {
         this.beforeEnter(el)
         if (el.scrollHeight !== 0) {
-            el.style.height = el.scrollHeight + 16 + 'px';
+            el.style.height = el.scrollHeight + 9.8 + 'px';
             el.style.paddingTop = el.dataset.oldPaddingTop;
             el.style.paddingBottom = el.dataset.oldPaddingBottom;
         } else {
@@ -21,13 +21,20 @@ class Transition {
             el.style.paddingTop = el.dataset.oldPaddingTop;
             el.style.paddingBottom = el.dataset.oldPaddingBottom;
         }
+        this.afterEnter(el)
+    }
+
+    afterEnter(el) {
+        setTimeout(() => {
+            el.style.height = ''
+        }, 200)
     }
 
     beforeLeave(el) {
         el.dataset.oldPaddingTop = el.style.paddingTop;
         el.dataset.oldPaddingBottom = el.style.paddingBottom;
 
-        el.style.height = el.scrollHeight + 12.8 + 'px';
+        el.style.height = el.scrollHeight + 9.8 + 'px';
     }
 
     leave(el) {
