@@ -17,6 +17,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="input-item" v-for="(description, index) in item.descriptions" :key="index">
+                    <my-input v-model="item.descriptions[index]" type="textarea">
+                        <span>{{'描述'+(index+1)}}</span>
+                    </my-input>
+                </div>
             </drawer>
         </div>
     </div>
