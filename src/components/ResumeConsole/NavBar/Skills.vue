@@ -61,33 +61,13 @@
 
             return {
                 skills,
-                skillItem,
-                handleAttribute,
-                handleArray
+                skillItem
             }
         }
-    }
-
-    function handleAttribute(target, key, value) {
-        target[key] = value
-    }
-
-    function handleArray(target, index, value) {
-        target[index] = value
     }
 
 </script>
 
 <style lang="scss" scoped>
-    .input-item {
-        border: 1px solid #ebebeb;
-        padding: .5rem 1rem;
-        margin-bottom: .6rem;
-        border-radius: 5px;
-
-        &:hover {
-            box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%), 0 2px 4px 0 rgb(232 237 250 / 50%);
-        }
-    }
 
 </style>
