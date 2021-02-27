@@ -1,7 +1,7 @@
 <template>
     <div :class="['drawer-wrapper', {'active': active}]">
         <div class="drawer-title" @click.self="toggle">
-            <span>{{title}}</span>
+            <span>{{title.length>0?title:'空标题'}}</span>
             <i class="fa fa-angle-down" aria-hidden="true"></i>
         </div>
         <div class="drawer">
