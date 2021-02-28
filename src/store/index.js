@@ -6,36 +6,36 @@ import copy from '../utils/copy'
 export default createStore({
     state: {
         personalInfo: {
-            name: '姓名',
+            name: '',
             image: '/images/avatar.png',
-            gender: '输入性别',
-            job: '求职岗位',
-            university: '毕业院校',
-            major: '所学专业',
-            github: 'GitHub主页',
-            blog: '博客网站',
-            email: '联系邮箱',
-            tel: '联系电话'
+            gender: '',
+            job: '',
+            university: '',
+            major: '',
+            github: '',
+            blog: '',
+            email: '',
+            tel: ''
         },
         skills: [{
-            type: '类型',
+            type: '',
             skill: [
                 {
-                    title: '标题',
+                    title: '',
                     descriptions: [
-                        '描述'
+                        ''
                     ]
                 }
             ]
         }],
         experiences: [
             {
-                type: '类型',
+                type: '',
                 details: [{
                     source: '',
-                    title: '标题',
+                    title: '',
                     descriptions: [
-                        '描述'
+                        ''
                     ]
                 }
                 ]
