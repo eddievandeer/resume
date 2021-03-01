@@ -1,7 +1,7 @@
 <template>
     <div class="inputs">
         <load-image style="margin-bottom: 1rem"></load-image>
-        <div class="input-item" v-for="(type, key) in inputTypes" :key="key">
+        <div v-for="(type, key) in inputTypes" :key="key">
             <my-input v-model="info[key]">
                 <span>{{type}}</span>
             </my-input>

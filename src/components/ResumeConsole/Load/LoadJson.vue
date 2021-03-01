@@ -46,7 +46,7 @@
 
 <style lang="scss" scoped>
     .upload-file {
-        margin-bottom: 1rem;
+        margin-top: 1rem;
 
         .upload-btn {
             display: flex;
