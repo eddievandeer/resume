@@ -1,5 +1,5 @@
 module.exports = {
-    baseUrl: '/resume/',
+    publicPath: './',
     productionSourceMap: false,
     devServer: {
         open: true,
