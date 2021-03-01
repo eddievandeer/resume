@@ -14,8 +14,8 @@
         "sass": "^1.32.5",
         "sass-loader": "^10.1.1",
         "tailwindcss": "^2.0.2",
-        "vue": "^3.0.0",
-        "vuex": "^4.0.0-rc.2"
+        "vue": "^3.0.6",
+        "vuex": "^4.0.0"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "~4.5.0",
