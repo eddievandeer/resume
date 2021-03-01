@@ -20,17 +20,19 @@
     import Info from './Info'
     import Skills from './Skills'
     import Experiences from './Experiences'
+    import Theme from './Theme'
 
     export default {
         components: {
             Info,
             Skills,
-            Experiences
+            Experiences,
+            Theme
         },
         setup() {
             const show = ref(0)
 
-            const components = ['info', 'skills', 'experiences']
+            const components = ['info', 'skills', 'experiences', 'theme']
 
             const description = ['个人信息', '掌握技能', '项目经历', '主题设置']
 
