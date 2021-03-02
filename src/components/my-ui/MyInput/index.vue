@@ -22,7 +22,7 @@
         nextTick
     } from 'vue'
 
-    import calcTextareaHeight from '../../../utils/calcTextareaHeight'
+    import calcTextareaHeight from './calcTextareaHeight'
     import copy from '../../../utils/copy'
 
     export default {

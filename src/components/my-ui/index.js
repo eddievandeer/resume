@@ -1,11 +1,15 @@
 import PersonalInfo from './PersonalInfo'
 import MySkills from './MySkills'
 import MyExperiences from './MyExperiences'
+import MyInput from './MyInput'
+import Drawer from './Drawer'
 
 const COMPONENTS = [
     PersonalInfo,
     MySkills,
-    MyExperiences
+    MyExperiences,
+    MyInput,
+    Drawer
 ]
 
 const MyUI = {}

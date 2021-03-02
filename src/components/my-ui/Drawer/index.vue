@@ -14,9 +14,10 @@
     import {
         ref
     } from 'vue'
-    import Transition from '../../../utils/transition'
+    import Transition from './transition'
 
     export default {
+        name: 'Drawer',
         props: {
             title: String
         },

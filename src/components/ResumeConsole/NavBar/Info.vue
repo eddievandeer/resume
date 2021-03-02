@@ -19,11 +19,9 @@
         useStore
     } from 'vuex'
 
-    import MyInput from '../Input/MyInput'
     import LoadImage from '../Load/LoadImage'
     export default defineComponent({
         components: {
-            MyInput,
             LoadImage
         },
         setup() {

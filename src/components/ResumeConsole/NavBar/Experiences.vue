@@ -31,14 +31,7 @@
         useStore
     } from 'vuex'
 
-    import MyInput from '../Input/MyInput'
-    import Drawer from '../Input/Drawer.vue'
-
     export default {
-        components: {
-            MyInput,
-            Drawer
-        },
         setup() {
             const store = useStore()
 

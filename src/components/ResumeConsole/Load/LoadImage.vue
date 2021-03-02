@@ -27,13 +27,9 @@
     import {
         LoadImage
     } from '../../../utils/loaders'
-    import MyInput from '../Input/MyInput.vue'
 
     export default {
         name: 'LoadImage',
-        components: {
-            MyInput
-        },
         setup() {
             const store = useStore()
 
