@@ -10,9 +10,11 @@
 
 ## 在线使用
 
-在线使用地址：
+在线使用地址：[https://eddievandeer.github.io/resume/](https://eddievandeer.github.io/resume/)
 
-国内用户可使用：（更加快速且不会被墙）
+国内用户可访问(不会被墙): 
+
+[https://resume-eddievandeer.vercel.app/](https://resume-eddievandeer.vercel.app/) 或 [https://resume-inky-one.vercel.app/](https://resume-inky-one.vercel.app/)
 
 ## 本地使用
 
