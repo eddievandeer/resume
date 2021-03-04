@@ -15,9 +15,17 @@
                                 <span>{{'描述'+(index2+1)}}</span>
                             </my-input>
                         </div>
+                        <add-button :target="detail.descriptions" :item="''">
+                            <span>添加描述</span>
+                        </add-button>
                     </div>
                 </div>
             </drawer>
+        </div>
+        <div class="add-experience">
+            <add-button :type="ADD_EXPERIENCE" :item="experienceItem">
+                <span>添加经历类型</span>
+            </add-button>
         </div>
     </div>
 </template>
@@ -31,14 +39,33 @@
         useStore
     } from 'vuex'
 
+    import {
+        ADD_EXPERIENCE
+    } from '../../../store/mutation-types'
+    import AddButton from '../Input/AddButton'
+
     export default {
+        components: {
+            AddButton
+        },
         setup() {
             const store = useStore()
 
             const experiences = store.state.experiences
 
+            const experienceItem = reactive({
+                type: '',
+                details: [{
+                    source: '',
+                    title: '',
+                    descriptions: []
+                }]
+            })
+
             return {
-                experiences
+                experiences,
+                experienceItem,
+                ADD_EXPERIENCE
             }
         }
     }
@@ -46,5 +73,8 @@
 </script>
 
 <style>
+    .add-experience {
+        margin-top: 1rem;
+    }
 
 </style>
