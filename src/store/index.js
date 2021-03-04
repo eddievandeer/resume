@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, ADD_SKILL_ITEM, REMOVE_PART, RESTORE_ALL, SET_COLOR } from './mutation-types'
+import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, ADD_SKILL_ITEM, ADD_EXPERIENCE, REMOVE_PART, RESTORE_ALL, SET_COLOR } from './mutation-types'
 
 import copy from '../utils/copy'
 
@@ -7,7 +7,7 @@ export default createStore({
     state: {
         personalInfo: {
             name: '',
-            image: '/images/avatar.png',
+            image: './images/avatar.png',
             gender: '',
             job: '',
             university: '',
@@ -22,22 +22,19 @@ export default createStore({
             skill: [
                 {
                     title: '',
-                    descriptions: [
-                        ''
-                    ]
+                    descriptions: []
                 }
             ]
         }],
         experiences: [
             {
                 type: '',
-                details: [{
-                    source: '',
-                    title: '',
-                    descriptions: [
-                        ''
-                    ]
-                }
+                details: [
+                    {
+                        source: '',
+                        title: '',
+                        descriptions: []
+                    }
                 ]
             }
         ],
@@ -72,7 +69,14 @@ export default createStore({
             state.parts.push(parts)
         },
         [ADD_SKILL_ITEM](state, item) {
-            state.skills.pop(item)
+            const ownItem = {}
+            copy(ownItem, item)
+            state.skills.push(ownItem)
+        },
+        [ADD_EXPERIENCE](state, item) {
+            const ownItem = {}
+            copy(ownItem, item)
+            state.experiences.push(ownItem)
         },
         [REMOVE_PART](state, index) {
             state.parts.splice(index, 1)
