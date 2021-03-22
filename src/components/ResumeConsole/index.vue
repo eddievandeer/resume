@@ -21,9 +21,20 @@
 
 <style lang="scss" scoped>
     .console-wrapper {
+        height: 100vh;
         border-right: 1px solid #e0e0e0;
+        box-sizing: border-box;
         padding: 1.5rem;
         flex: 1;
+        overflow: auto;
+        position: sticky;
+        top: 0;
+        left: 0;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
     }
 
 </style>
