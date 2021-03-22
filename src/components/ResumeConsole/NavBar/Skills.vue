@@ -32,11 +32,11 @@
                 </div>
                 <div class="add-skill">
                     <add-button :target="item.skill" :item="{
-                    title: '标题',
-                    descriptions: [
-                        '描述'
-                    ]
-                }">
+                        title: '标题',
+                        descriptions: [
+                            '描述'
+                        ]
+                    }">
                         <span>添加技能</span>
                     </add-button>
                 </div>
