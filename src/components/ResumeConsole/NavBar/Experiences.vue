@@ -20,9 +20,20 @@
                         </add-button>
                     </div>
                 </div>
+                <div class="add-experience">
+                    <add-button :target="item.details" :item="{
+                        source: '',
+                        title: '',
+                        descriptions: [
+                            '描述'
+                        ]
+                    }">
+                        <span>添加经历</span>
+                    </add-button>
+                </div>
             </drawer>
         </div>
-        <div class="add-experience">
+        <div class="add-experience-item">
             <add-button :type="ADD_EXPERIENCE" :item="experienceItem">
                 <span>添加经历类型</span>
             </add-button>
@@ -74,6 +85,10 @@
 
 <style>
     .add-experience {
+        margin-bottom: 1rem;
+    }
+
+    .add-experience-item {
         margin-top: 1rem;
     }
 
