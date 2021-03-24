@@ -4,6 +4,7 @@
         <container></container>
         <print-btn></print-btn>
     </div>
+    <to-top></to-top>
 </template>
 
 <script>
