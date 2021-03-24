@@ -119,7 +119,7 @@ textarea.console-input {
     margin: 0;
     padding: 12px 20px;
     box-sizing: border-box;
-    transition: .1s;
+    transition: .1s ease-in-out;
     cursor: pointer;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -156,6 +156,23 @@ textarea.console-input {
     }
 }
 
+.btn.danger {
+    color: #f56c6c;
+    border-radius: 4px;
+    background-color: #FEF0F0;
+    border: 1px solid #fbc4c4;
+
+    &:hover {
+        color: white;
+        border-color: #dd6161;
+        background-color: #F56C6C;
+    }
+
+    &:active {
+        border-color: #FEF0F0;
+    }
+}
+
 h3 {
     font-size: 1.2rem;
 }
@@ -169,4 +186,10 @@ h3 {
             background-color: $hash;
         }
     }
+}
+
+.controller-btns {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
