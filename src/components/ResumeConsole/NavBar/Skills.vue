@@ -15,10 +15,15 @@
                                 <span>{{'描述'+(index+1)}}</span>
                             </my-input>
                         </div>
-                        <add-button :target="skill.descriptions" :item="''">
-                            <span>添加描述</span>
-                        </add-button>
+                        <div class="controller-btns">
+                            <add-button :target="skill.descriptions" :item="''">
+                                <span>添加描述</span>
+                            </add-button>
+                        </div>
                     </div>
+                    <remove-button :target="item.skill" :index="key2">
+                        删除该项
+                    </remove-button>
                 </div>
                 <div class="input-item" v-if="item.descriptions">
                     <div v-for="(description, index) in item.descriptions" :key="index">
@@ -30,7 +35,7 @@
                         <span>添加描述</span>
                     </add-button>
                 </div>
-                <div class="add-skill">
+                <div class="add-skill controller-btns">
                     <add-button :target="item.skill" :item="{
                         title: '标题',
                         descriptions: [
@@ -39,6 +44,9 @@
                     }">
                         <span>添加技能</span>
                     </add-button>
+                    <remove-button :target="skills" :index="key1">
+                        删除技能
+                    </remove-button>
                 </div>
             </drawer>
         </div>
@@ -63,10 +71,12 @@
         ADD_SKILL_ITEM
     } from '../../../store/mutation-types'
     import AddButton from '../Input/AddButton'
+    import RemoveButton from '../Input/RemoveButton'
 
     export default {
         components: {
-            AddButton
+            AddButton,
+            RemoveButton
         },
         setup() {
             const store = useStore()

@@ -19,8 +19,11 @@
                             <span>添加描述</span>
                         </add-button>
                     </div>
+                    <remove-button :target="item.details" :index="index1">
+                        删除该项
+                    </remove-button>
                 </div>
-                <div class="add-experience">
+                <div class="add-experience controller-btns">
                     <add-button :target="item.details" :item="{
                         source: '',
                         title: '',
@@ -30,6 +33,9 @@
                     }">
                         <span>添加经历</span>
                     </add-button>
+                    <remove-button :target="experiences" :index="key">
+                        删除经历
+                    </remove-button>
                 </div>
             </drawer>
         </div>
@@ -54,10 +60,12 @@
         ADD_EXPERIENCE
     } from '../../../store/mutation-types'
     import AddButton from '../Input/AddButton'
+    import RemoveButton from '../Input/RemoveButton'
 
     export default {
         components: {
-            AddButton
+            AddButton,
+            RemoveButton
         },
         setup() {
             const store = useStore()
