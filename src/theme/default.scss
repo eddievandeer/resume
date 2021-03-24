@@ -24,7 +24,24 @@
     }
 
     .wrapper {
+        color: white;
         padding: 1.2rem 1.5rem 0 1.5rem;
+
+        .info-image {
+            color: #e2e2e2;
+
+            span {
+                color: white;
+            }
+        }
+
+        .info-detail-item {
+
+            a,
+            p {
+                color: white;
+            }
+        }
 
         .title {
             color: white;
@@ -96,6 +113,11 @@
 
                 p {
                     font-size: 14px;
+                }
+
+                a,
+                p {
+                    color: white;
                 }
             }
         }

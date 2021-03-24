@@ -42,14 +42,12 @@
     .info-wrapper {
         flex: 1;
         // background-color: #C0E3E7;
-        color: white;
         // background-color: #232240;
         display: flex;
         justify-content: flex-start;
         align-items: center;
 
         .info-image {
-            color: #e2e2e2;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -72,7 +70,6 @@
             }
 
             span {
-                color: white;
                 font-size: 24px;
                 letter-spacing: 3px;
             }
