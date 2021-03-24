@@ -4,6 +4,7 @@ import store from './store'
 import MyUI from './components/my-ui'
 import './style/global.scss'
 import './theme/default.scss'
+import './theme/artistic.scss'
 import 'font-awesome/css/font-awesome.min.css'
 
 const app = createApp(App)
