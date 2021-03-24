@@ -22,6 +22,7 @@ export const ADD_SKILL_ITEM = 'ADD_SKILL_ITEM'
 // 添加技能描述
 // export const ADD_SKILL_DESCRIPTION = 'ADD_SKILL_DESCRIPTION'
 
+// 添加经历信息
 export const ADD_EXPERIENCE = 'ADD_EXPERIENCE'
 
 // 移除模块（未实现）
