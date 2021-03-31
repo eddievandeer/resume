@@ -1,10 +1,16 @@
 <template>
     <div class="upload-file">
-        <label for="json" class="btn normal upload-btn">
+        <label for="json" class="btn normal load-btn">
             <i class="fa fa-cloud-upload" aria-hidden="true"></i>
             <span>上传数据(JSON)</span>
         </label>
         <input type="file" id="json" style="display: none" @change="doLoad" accept="application/json" />
+    </div>
+    <div class="download-file">
+        <button class="btn normal load-btn" @click="daSave">
+            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+            <span>保存数据</span>
+        </button>
     </div>
 </template>
 
@@ -18,7 +24,8 @@
         SET_EXPERIENCES
     } from '../../../store/mutation-types'
     import {
-        LoadJSON
+        LoadJSON,
+        SaveJSON
     } from '../../../utils/loaders'
 
     export default {
@@ -36,8 +43,14 @@
                 })
             }
 
+            function daSave() {
+                const content = JSON.stringify(store.state)
+                SaveJSON(content)
+            }
+
             return {
-                doLoad
+                doLoad,
+                daSave
             }
         }
     }
@@ -47,16 +60,21 @@
 <style lang="scss" scoped>
     .upload-file {
         margin-top: 1rem;
+    }
 
-        .upload-btn {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    .download-file {
+        margin-top: .5rem;
+    }
 
-            i {
-                font-size: 26px;
-            }
+    .load-btn {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            font-size: 26px;
         }
     }
 
