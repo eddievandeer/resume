@@ -1,20 +1,20 @@
 <template>
     <div class="info-detail">
         <div class="info-detail-item introduction">
-            <h2 class="title"><i class="fa fa-address-card-o" aria-hidden="true"></i>个人介绍</h2>
-            <p>性别：{{info.gender}}</p>
-            <p>毕业院校：{{info.university}}</p>
-            <p>专业：{{info.major}}</p>
+            <h2 class="title">个人介绍</h2>
+            <p>性别: <span>{{info.gender}}</span></p>
+            <p>毕业院校: <span>{{info.university}}</span></p>
+            <p>专业: <span>{{info.major}}</span></p>
         </div>
         <div class="info-detail-item contact">
-            <h2 class="title"><i class="fa fa-envelope-o" aria-hidden="true"></i>联系方式</h2>
-            <p>邮箱：{{info.email}}</p>
-            <p>电话：{{info.tel}}</p>
+            <h2 class="title">联系方式</h2>
+            <p>邮箱: <span>{{info.email}}</span></p>
+            <p>电话: <span>{{info.tel}}</span></p>
         </div>
-        <div class="info-detail-item else">
-            <h2 class="title"><i class="fa fa-at" aria-hidden="true"></i>其他</h2>
-            <p>GitHub：<a :href="info.github" target="__blank">{{info.github}}</a></p>
-            <p>博客网站：<a :href="info.blog" target="__blank">{{info.blog}}</a></p>
+        <div class="info-detail-item else" v-show="info.github || info.blog">
+            <h2 class="title">其他</h2>
+            <p v-show="info.github">GitHub: <a :href="info.github" target="__blank">{{info.github}}</a></p>
+            <p v-show="info.blog">博客网站: <a :href="info.blog" target="__blank">{{info.blog}}</a></p>
         </div>
     </div>
 </template>
