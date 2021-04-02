@@ -1,0 +1,61 @@
+.pure {
+    border: 1px dotted black;
+    box-sizing: border-box;
+
+    .wrapper {
+        padding: 1.2rem 2rem 0 2rem;
+    }
+
+    .info-wrapper {
+        border-right: 1px dotted black;
+
+        .info-detail {
+            width: 100%;
+
+            .info-detail-item a {
+                color: #666;
+                font-weight: normal;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .pluggable {
+
+        .list-wrapper h3 {
+            padding-bottom: .2rem;
+            border-bottom: 2px solid #CBCBCD;
+        }
+    }
+
+    .title {
+        &::before {
+            display: inline-block;
+            margin-right: 1rem;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    .introduction .title::before {
+        content: "\f2bc";
+    }
+
+    .contact .title::before {
+        content: "\f003";
+    }
+
+    .else .title::before {
+        content: "\f1fa";
+    }
+
+    .skills-wrapper .title::before {
+        content: "\f085";
+    }
+
+    .experiences-wrapper .title::before {
+        content: "\f0f6";
+    }
+}
