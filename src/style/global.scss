@@ -1,18 +1,22 @@
 @import '../style/colors.scss';
 
 ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 1px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #8080803f;
-    box-shadow: inset 0 0 3px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
-    background-color: #bebebe;
+    border-radius: 10px;
+    background-color: #cfd0d4;
+
+    &:hover {
+        background-color: #c0c2c5;
+    }
 }
 
 html {
@@ -139,6 +143,7 @@ textarea.console-input {
         background-color: #ecf5ff;
     }
 
+    &.active,
     &:active {
         color: #3a8ee6;
         border-color: #3a8ee6;
