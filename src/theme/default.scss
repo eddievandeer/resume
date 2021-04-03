@@ -50,10 +50,6 @@
             line-height: 2.4rem;
             margin-bottom: .4rem;
             position: relative;
-
-            i {
-                margin-right: 1rem;
-            }
         }
 
         .list-item {
@@ -121,5 +117,36 @@
                 }
             }
         }
+    }
+
+    .title {
+        &::before {
+            display: inline-block;
+            margin-right: 1rem;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
+
+    .introduction .title::before {
+        content: "\f2bc";
+    }
+
+    .contact .title::before {
+        content: "\f003";
+    }
+
+    .else .title::before {
+        content: "\f1fa";
+    }
+
+    .skills-wrapper .title::before {
+        content: "\f085";
+    }
+
+    .experiences-wrapper .title::before {
+        content: "\f0f6";
     }
 }
