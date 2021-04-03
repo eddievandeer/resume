@@ -1,5 +1,16 @@
 import { createStore } from 'vuex'
-import { SET_PERSONAL_INFO, SET_SKILLS, SET_EXPERIENCES, SET_PARTS, ADD_SKILL_ITEM, ADD_EXPERIENCE, REMOVE_PART, RESTORE_ALL, SET_COLOR } from './mutation-types'
+import {
+    SET_PERSONAL_INFO,
+    SET_SKILLS,
+    SET_EXPERIENCES,
+    SET_PARTS,
+    ADD_SKILL_ITEM,
+    ADD_EXPERIENCE,
+    REMOVE_PART,
+    RESTORE_ALL,
+    SET_COLOR,
+    SET_THEME_TYPE
+} from './mutation-types'
 
 import copy from '../utils/copy'
 
@@ -18,22 +29,22 @@ export default createStore({
             tel: ''
         },
         skills: [{
-            type: '',
+            type: '前端/后端/嵌入式等',
             skill: [
                 {
-                    title: '',
-                    descriptions: []
+                    title: 'Java/C++/JavaScript等',
+                    descriptions: ['技能描述']
                 }
             ]
         }],
         experiences: [
             {
-                type: '',
+                type: '个人项目/商业项目等',
                 details: [
                     {
                         source: '',
-                        title: '',
-                        descriptions: []
+                        title: '项目名称',
+                        descriptions: ['项目描述']
                     }
                 ]
             }
@@ -102,8 +113,10 @@ export default createStore({
             state.parts.push('my-skills', 'my-experiences')
         },
         [SET_COLOR](state, color) {
-            console.log(color);
             state.theme.color = color
+        },
+        [SET_THEME_TYPE](state, type) {
+            state.theme.type = type
         }
     },
     actions: {},
