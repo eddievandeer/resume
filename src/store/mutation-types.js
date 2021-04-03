@@ -31,5 +31,8 @@ export const REMOVE_PART = 'REMOVE_PART'
 // 初始化简历数据
 export const RESTORE_ALL = 'RESTORE_ALL'
 
+// 设置主题类型
+export const SET_THEME_TYPE = 'SET_THEME_TYPE'
+
 // 设置主题颜色
 export const SET_COLOR = 'SET_COLOR'
