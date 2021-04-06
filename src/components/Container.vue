@@ -47,6 +47,7 @@
         padding: 2rem 0;
         box-sizing: border-box;
         background-color: #f5f5f6;
+        user-select: none;
         flex: 3;
         display: flex;
         justify-content: space-evenly;

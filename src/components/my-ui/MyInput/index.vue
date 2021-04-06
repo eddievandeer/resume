@@ -184,6 +184,7 @@
             font-size: 14px;
             transition: all .2s ease-in-out;
             pointer-events: none;
+            user-select: none;
             position: absolute;
 
             &:focus {
