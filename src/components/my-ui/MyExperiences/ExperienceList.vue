@@ -1,6 +1,8 @@
 <template>
     <div class="list-wrapper experiences" v-for="(item, index) in experiences" :key="index">
-        <experience-item :item="item"></experience-item>
+        <drag-wrapper :index="index" type="experiences">
+            <experience-item :item="item"></experience-item>
+        </drag-wrapper>
     </div>
 </template>
 

@@ -1,7 +1,9 @@
 <template>
     <div class="list-wrapper skills" v-for="(item, index) in skills" :key="index">
-        <h3>{{item.type}}</h3>
-        <skill-item :item="item"></skill-item>
+        <drag-wrapper :index="index" type="skills">
+            <h3>{{item.type}}</h3>
+            <skill-item :item="item"></skill-item>
+        </drag-wrapper>
     </div>
 </template>
 
