@@ -4,6 +4,7 @@ import MyExperiences from './MyExperiences'
 import MyInput from './MyInput'
 import Drawer from './Drawer'
 import ToTop from './ToTop'
+import DragWrapper from './DragWrapper'
 
 const COMPONENTS = [
     PersonalInfo,
@@ -11,7 +12,8 @@ const COMPONENTS = [
     MyExperiences,
     MyInput,
     Drawer,
-    ToTop
+    ToTop,
+    DragWrapper
 ]
 
 const MyUI = {}
