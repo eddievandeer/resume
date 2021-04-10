@@ -9,7 +9,8 @@ import {
     REMOVE_PART,
     RESTORE_ALL,
     SET_COLOR,
-    SET_THEME_TYPE
+    SET_THEME_TYPE,
+    CHANGE_THE_ORDER
 } from './mutation-types'
 
 import copy from '../utils/copy'
@@ -117,6 +118,13 @@ export default createStore({
         },
         [SET_THEME_TYPE](state, type) {
             state.theme.type = type
+        },
+        [CHANGE_THE_ORDER](state, payload) {
+            const target = state[payload.type]
+            const temp = target[payload.from]
+
+            target[payload.from] = target[payload.to]
+            target[payload.to] = temp
         }
     },
     actions: {},
