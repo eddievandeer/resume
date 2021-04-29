@@ -9,22 +9,74 @@
 
 <script>
     import {
-        getCurrentInstance
+        h,
+        getCurrentInstance,
+        ref,
+        watch
     } from 'vue'
     import ExportSavePdf from '../utils/html2pdf'
+    import ExportSaveJpg from '../utils/html2jpg'
+
+    import MyRadio from './my-ui/MyRadio'
 
     export default {
         name: 'ResumeConsole',
-        setup() {
+        setup(props, {
+            emit
+        }) {
             const {
                 proxy
             } = getCurrentInstance()
 
+            let printType = ref(1)
+
+            watch(() => printType, (newValue) => {
+                console.log(newValue);
+            })
+
             function clickHandler() {
-                proxy.$prompt('打印简历', '请输入文件名').then(({
+                // proxy.$prompt('打印简历', '请输入文件名').then(({
+                //     value,
+                //     type
+                // }) => {
+                //     // ExportSavePdf('#pdfCentent', value)
+                //     ExportSaveJpg('#pdfCentent', value)
+                // })
+                proxy.$msgBox({
+                    title: '打印简历',
+                    message: '请输入文件名',
+                    customNode: h('div', null, [
+                        h(MyRadio, {
+                            modelValue: printType,
+                            'onUpdate:modelValue': value => printType.value = value,
+                            label: 1
+                        }, {
+                            default: () => h('span', null, '打印PDF格式')
+                        }),
+                        h(MyRadio, {
+                            modelValue: printType,
+                            'onUpdate:modelValue': value => printType.value = value,
+                            label: 2
+                        }, {
+                            default: () => h('span', null, '打印JPG格式')
+                        })
+                    ]),
+                    showInput: true
+                }).then(({
                     value
                 }) => {
-                    ExportSavePdf('#pdfCentent', value)
+                    switch (printType.value) {
+                        case 1:
+                            ExportSavePdf('#pdfCentent', value)
+                            break
+                        case 2:
+                            ExportSaveJpg('#pdfCentent', value)
+                            break
+                        default:
+                            break
+                    }
+                }, () => {
+                    printType.value = 1
                 })
             }
 
