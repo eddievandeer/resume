@@ -7,12 +7,15 @@
                     <button class="close" @click="doClose"><i class="fa fa-times" aria-hidden="true"></i></button>
                 </div>
                 <div class="message-box-detail">
-                    <div class="message-box-input" v-show="showInput">
+                    <div class="message-box-custom" v-if="customNode">
+                        <slot></slot>
+                    </div>
+                    <div class="message-box-input" v-if="showInput">
                         <my-input v-model="inputValue">
                             <span>{{ message }}</span>
                         </my-input>
                     </div>
-                    <div v-show="!showInput">{{ message }}</div>
+                    <div v-else>{{ message }}</div>
                     <button class="btn normal action" @click="doAction">确定</button>
                 </div>
             </div>
@@ -53,12 +56,16 @@
                 message: null,
                 showInput: false,
                 inputValue: null,
-                placeholder: null
+                placeholder: null,
+                customNode: null
             })
 
             function doClose() {
+                if (!visible.value) return
+                visible.value = false
+
                 nextTick(() => {
-                    emit('vanish')
+                    emit('action', 'close')
                 })
             }
 

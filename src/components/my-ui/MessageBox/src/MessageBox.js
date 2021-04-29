@@ -1,4 +1,4 @@
-import { h, render } from 'vue'
+import { h, render, watch, isVNode } from 'vue'
 import MessageBoxConstructor from './index.vue'
 
 const messageInstance = new Map()
@@ -28,7 +28,12 @@ function showMessage(options) {
             resolve = action
         }
 
-        currentMsg.resolve(resolve)
+        if (action === 'close') {
+            currentMsg.reject(action)
+        }
+        else {
+            currentMsg.resolve(resolve)
+        }
     }
 
     const instance = initInstance(options, container)
@@ -40,6 +45,17 @@ function showMessage(options) {
             vm[prop] = options[prop]
         }
     }
+
+    watch(() => vm.customNode, (newVal, oldVal) => {
+        if (isVNode(newVal)) {
+            // Override slots since message is vnode type.
+            instance.slots.default = () => [newVal]
+        } else if (isVNode(oldVal) && !isVNode(newVal)) {
+            delete instance.slots.default
+        }
+    }, {
+        immediate: true,
+    })
 
     vm.visible = true
 
