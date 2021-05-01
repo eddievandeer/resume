@@ -1,8 +1,8 @@
 <template>
     <div class="info-wrapper wrapper" :class="style">
         <div class="info-image">
-            <div class="image">
-                <img :src="info.image" alt="加载中..." v-if="info.image.length > 0">
+            <div class="image" v-loading="loaded" loading-type="2" loading-text="正在加载中...">
+                <img src="/images/avatar.png" ref="image" alt="加载中...">
             </div>
             <span>{{info.name}}</span>
             {{info.job}}
@@ -13,9 +13,31 @@
 
 <script>
     import {
+        ref,
+        watch
+    } from 'vue'
+
+    import {
         useStore
     } from 'vuex'
+
     import InfoDetail from './InfoDetail.vue'
+
+    function loadImage(target, url, loaded) {
+        const img = document.createElement('img')
+        img.src = url
+        loaded.value = false
+
+        img.addEventListener('load', () => {
+            target._value.src = url
+            loaded.value = true
+        })
+
+        img.addEventListener('error', () => {
+            target._value.src = '/images/avatar.png'
+            loaded.value = true
+        })
+    }
 
     export default {
         name: 'PersonalInfo',
@@ -26,12 +48,25 @@
             style: String
         },
         setup() {
+            const image = ref()
+            const loaded = ref(false)
+
             const store = useStore()
 
             const info = store.state.personalInfo
 
+            // loadImage(image, info.image, loaded)
+
+            watch(() => info.image, (newImage) => {
+                loadImage(image, newImage, loaded)
+            }, {
+                immediate: true,
+            })
+
             return {
-                info
+                info,
+                loaded,
+                image
             }
         }
     }
