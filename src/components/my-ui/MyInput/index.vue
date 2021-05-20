@@ -30,6 +30,9 @@
         emits: ['update:modelValue', 'input', 'change'],
         props: {
             modelValue: String,
+            modelModifiers: {
+                default: () => ({})
+            },
             type: {
                 type: String,
                 default: 'text'
@@ -42,8 +45,11 @@
 
             const textarea = ref(null)
 
-            const nativeInputValue = computed(() => (props.modelValue === null || props.modelValue === undefined) ? '' :
-                String(props.modelValue))
+            const nativeInputValue = computed(
+                () => (props.modelValue === null || props.modelValue === undefined) ?
+                '' :
+                String(props.modelValue)
+            )
 
             const textareaCalcStyle = reactive({
                 height: "0",
@@ -97,6 +103,8 @@
             }
 
             const handleInput = (event) => {
+                if (props.modelModifiers.lazy) return
+
                 context.emit('input', event.target.value)
                 context.emit('update:modelValue', event.target.value)
 
@@ -104,7 +112,10 @@
             }
 
             const handleChange = (event) => {
-                context.emit('change', event.target.value)
+                if (props.modelModifiers.lazy || !focus.value) {
+                    context.emit('change', event.target.value)
+                    context.emit('update:modelValue', event.target.value)
+                }
             }
 
             const handleFocus = () => {
