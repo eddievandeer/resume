@@ -7,7 +7,7 @@
         <input type="file" id="image" style="display: none" @change="doLoad"
             accept="image/gif, image/jpeg, image/png" />
         或
-        <my-input v-model="inputURL">
+        <my-input v-model.lazy="inputURL">
             <span>输入图片网址</span>
         </my-input>
     </div>
