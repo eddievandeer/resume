@@ -141,6 +141,10 @@
     .else .title::before {
         content: "\f1fa";
     }
+    
+    .internship-wrapper .title::before {
+        content: "\f0f7";
+    }
 
     .skills-wrapper .title::before {
         content: "\f085";
