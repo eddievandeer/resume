@@ -1,16 +1,18 @@
 import { createStore } from 'vuex'
 import {
     SET_PERSONAL_INFO,
+    SET_INTERNSHIP,
     SET_SKILLS,
     SET_EXPERIENCES,
     SET_PARTS,
     ADD_SKILL_ITEM,
     ADD_EXPERIENCE,
+    ADD_INTERNSHIP_EXPERIENCE,
     REMOVE_PART,
     RESTORE_ALL,
     SET_COLOR,
     SET_THEME_TYPE,
-    CHANGE_THE_ORDER
+    CHANGE_THE_ORDER,
 } from './mutation-types'
 
 import copy from '../utils/copy'
@@ -29,6 +31,14 @@ export default createStore({
             email: '',
             tel: ''
         },
+        internship: [{
+            title: '实习公司',
+            startTime: '2021.7',
+            endTime: '至今',
+            descriptions: [
+                '实习经历描述'
+            ]
+        }],
         skills: [{
             type: '前端/后端/嵌入式等',
             skill: [
@@ -50,7 +60,7 @@ export default createStore({
                 ]
             }
         ],
-        parts: ['my-skills', 'my-experiences'],
+        parts: ['my-internship', 'my-skills', 'my-experiences'],
         theme: {
             type: 'normal',
             color: 'cyan',
@@ -67,6 +77,10 @@ export default createStore({
                 copy(state.personalInfo, info)
                 console.log('copy object');
             }
+        },
+        [SET_INTERNSHIP](state, internship) {
+            state.internship.splice(0, state.internship.length)
+            state.internship.push(...internship)
         },
         [SET_SKILLS](state, skills) {
             state.skills.splice(0, state.skills.length)
@@ -90,6 +104,11 @@ export default createStore({
             copy(ownItem, item)
             state.experiences.push(ownItem)
         },
+        [ADD_INTERNSHIP_EXPERIENCE](state, item) {
+            const ownItem = {}
+            copy(ownItem, item)
+            state.internship.push(ownItem)
+        },
         [REMOVE_PART](state, index) {
             state.parts.splice(index, 1)
         },
@@ -111,7 +130,7 @@ export default createStore({
             state.skills.splice(0, state.skills.length)
             state.experiences.splice(0, state.experiences.length)
             state.parts.splice(0, state.parts.length)
-            state.parts.push('my-skills', 'my-experiences')
+            state.parts.push('MyInternship', 'my-skills', 'my-experiences')
         },
         [SET_COLOR](state, color) {
             state.theme.color = color

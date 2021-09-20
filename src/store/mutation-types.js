@@ -1,6 +1,9 @@
 // 设置个人信息
 export const SET_PERSONAL_INFO = 'SET_PERSONAL_INFO'
 
+// 设置实习经历信息
+export const SET_INTERNSHIP = 'SET_INTERNSHIP'
+
 // 设置技能信息
 export const SET_SKILLS = 'SET_SKILLS'
 
@@ -24,6 +27,8 @@ export const ADD_SKILL_ITEM = 'ADD_SKILL_ITEM'
 
 // 添加经历信息
 export const ADD_EXPERIENCE = 'ADD_EXPERIENCE'
+
+export const ADD_INTERNSHIP_EXPERIENCE = 'ADD_INTERNSHIP_EXPERIENCE'
 
 // 移除模块（未实现）
 export const REMOVE_PART = 'REMOVE_PART'
