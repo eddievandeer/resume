@@ -1,4 +1,5 @@
 import PersonalInfo from './PersonalInfo'
+import MyInternship from './MyInternship'
 import MySkills from './MySkills'
 import MyExperiences from './MyExperiences'
 import MyInput from './MyInput'
@@ -8,6 +9,7 @@ import DragWrapper from './DragWrapper'
 
 const COMPONENTS = [
     PersonalInfo,
+    MyInternship,
     MySkills,
     MyExperiences,
     MyInput,
