@@ -83,15 +83,15 @@ export default createStore({
         },
         [SET_INTERNSHIP](state, internship) {
             state.internship.splice(0, state.internship.length)
-            state.internship.push(...internship)
+            internship && state.internship.push(...internship)
         },
         [SET_SKILLS](state, skills) {
             state.skills.splice(0, state.skills.length)
-            state.skills.push(...skills)
+            skills && state.skills.push(...skills)
         },
         [SET_EXPERIENCES](state, experiences) {
             state.experiences.splice(0, state.experiences.length)
-            state.experiences.push(...experiences)
+            experiences && state.experiences.push(...experiences)
         },
         [SET_PARTS](state, parts) {
             state.parts.splice(0, state.parts.length)
