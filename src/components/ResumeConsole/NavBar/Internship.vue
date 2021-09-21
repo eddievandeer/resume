@@ -2,7 +2,8 @@
     <div class="inputs">
         <div v-for="(item, key) in internship" :key="key">
             <my-input v-model="item.title">
-                <span>实习公司</span>
+                <span>公司名称</span>
+            </my-input>
             </my-input>
             <my-input v-model="item.startTime">
                 <span>起始时间</span>

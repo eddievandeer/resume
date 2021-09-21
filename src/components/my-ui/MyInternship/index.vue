@@ -1,6 +1,6 @@
 <template>
     <div class="internship-wrapper wrapper">
-        <h2 class="title">实习经历</h2>
+        <h2 class="title">工作经历</h2>
         <internship-list></internship-list>
     </div>
 </template>
