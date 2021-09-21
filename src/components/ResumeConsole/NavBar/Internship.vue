@@ -4,6 +4,8 @@
             <my-input v-model="item.title">
                 <span>公司名称</span>
             </my-input>
+            <my-input v-model="item.type">
+                <span>工作性质</span>
             </my-input>
             <my-input v-model="item.startTime">
                 <span>起始时间</span>

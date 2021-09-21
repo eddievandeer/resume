@@ -3,6 +3,8 @@
         <div class="info-detail-item introduction">
             <h2 class="title">个人介绍</h2>
             <p>性别: <span>{{info.gender}}</span></p>
+            <p>年龄: <span>{{info.age}}</span></p>
+            <p>学历: <span>{{info.qualification}}</span></p>
             <p>毕业院校: <span>{{info.university}}</span></p>
             <p>专业: <span>{{info.major}}</span></p>
         </div>

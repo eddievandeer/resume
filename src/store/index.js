@@ -23,7 +23,9 @@ export default createStore({
             name: '',
             image: './images/avatar.png',
             gender: '',
+            age: '',
             job: '',
+            qualification: '',
             university: '',
             major: '',
             github: '',
@@ -33,6 +35,7 @@ export default createStore({
         },
         internship: [{
             title: '实习公司',
+            type: '实习/全职',
             startTime: '2021.7',
             endTime: '至今',
             descriptions: [

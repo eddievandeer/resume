@@ -8,6 +8,9 @@
                 </div>
             </div>
         </drag-wrapper>
+        <div class="internship-type">
+            <span>{{item.type}}</span>
+        </div>
     </div>
 </template>
 
@@ -29,3 +32,21 @@
     }
 
 </script>
+
+<style lang="scss" scoped>
+    .internship {
+        position: relative;
+
+        .internship-type {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+
+            span {
+                color: #464646;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+    }
+</style>
