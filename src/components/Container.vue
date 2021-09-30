@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         ref
     } from 'vue'
@@ -21,25 +21,13 @@
         REMOVE_PART
     } from '../store/mutation-types'
 
-    export default {
-        name: 'Container',
-        setup() {
-            const store = useStore()
-            const parts = store.state.parts
-            const theme = store.state.theme
+    const store = useStore()
+    const parts = store.state.parts
+    const theme = store.state.theme
 
-            function remove(index) {
-                store.commit(REMOVE_PART, index)
-            }
-
-            return {
-                parts,
-                remove,
-                theme
-            }
-        }
+    function remove(index) {
+        store.commit(REMOVE_PART, index)
     }
-
 </script>
 
 <style lang="scss" scoped>

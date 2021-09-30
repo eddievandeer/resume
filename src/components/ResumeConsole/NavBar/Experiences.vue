@@ -47,7 +47,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         reactive
     } from 'vue'
@@ -58,37 +58,21 @@
 
     import {
         ADD_EXPERIENCE
-    } from '../../../store/mutation-types'
+    } from '@/store/mutation-types'
     import AddButton from '../Input/AddButton'
     import RemoveButton from '../Input/RemoveButton'
+    const store = useStore()
 
-    export default {
-        components: {
-            AddButton,
-            RemoveButton
-        },
-        setup() {
-            const store = useStore()
+    const experiences = store.state.experiences
 
-            const experiences = store.state.experiences
-
-            const experienceItem = reactive({
-                type: '',
-                details: [{
-                    source: '',
-                    title: '',
-                    descriptions: []
-                }]
-            })
-
-            return {
-                experiences,
-                experienceItem,
-                ADD_EXPERIENCE
-            }
-        }
-    }
-
+    const experienceItem = reactive({
+        type: '',
+        details: [{
+            source: '',
+            title: '',
+            descriptions: []
+        }]
+    })
 </script>
 
 <style>

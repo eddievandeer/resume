@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         useStore
     } from 'vuex'
@@ -15,27 +15,15 @@
     import themes from './themes'
     import {
         SET_THEME_TYPE
-    } from '../../../../store/mutation-types'
+    } from '@/store/mutation-types'
 
-    export default {
-        name: 'ThemeController',
-        setup() {
-            const store = useStore()
+    const store = useStore()
 
-            const storeTheme = store.state.theme
+    const storeTheme = store.state.theme
 
-            function changeTheme(type) {
-                store.commit(SET_THEME_TYPE, type)
-            }
-
-            return {
-                storeTheme,
-                themes,
-                changeTheme
-            }
-        }
+    function changeTheme(type) {
+        store.commit(SET_THEME_TYPE, type)
     }
-
 </script>
 
 <style lang="scss" scoped>

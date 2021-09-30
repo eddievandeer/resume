@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         useStore
     } from 'vuex'
@@ -23,40 +23,29 @@
         SET_INTERNSHIP,
         SET_SKILLS,
         SET_EXPERIENCES
-    } from '../../../store/mutation-types'
+    } from '@/store/mutation-types'
     import {
         LoadJSON,
         SaveJSON
-    } from '../../../utils/loaders'
+    } from '@/utils/loaders'
 
-    export default {
-        name: 'LoadJson',
-        setup() {
-            const store = useStore()
+    const store = useStore()
 
-            function doLoad() {
-                LoadJSON('#json', (evt) => {
-                    let fileJSON = JSON.parse(evt.target.result);
-                    store.commit(SET_PERSONAL_INFO, fileJSON.personalInfo)
-                    store.commit(SET_INTERNSHIP, fileJSON.internship)
-                    store.commit(SET_SKILLS, fileJSON.skills)
-                    store.commit(SET_EXPERIENCES, fileJSON.experiences)
-                    // console.log(store.state.skills);
-                })
-            }
-
-            function daSave() {
-                const content = JSON.stringify(store.state)
-                SaveJSON(content)
-            }
-
-            return {
-                doLoad,
-                daSave
-            }
-        }
+    function doLoad() {
+        LoadJSON('#json', (evt) => {
+            let fileJSON = JSON.parse(evt.target.result);
+            store.commit(SET_PERSONAL_INFO, fileJSON.personalInfo)
+            store.commit(SET_INTERNSHIP, fileJSON.internship)
+            store.commit(SET_SKILLS, fileJSON.skills)
+            store.commit(SET_EXPERIENCES, fileJSON.experiences)
+            // console.log(store.state.skills);
+        })
     }
 
+    function daSave() {
+        const content = JSON.stringify(store.state)
+        SaveJSON(content)
+    }
 </script>
 
 <style lang="scss" scoped>

@@ -13,7 +13,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         ref,
         watch
@@ -23,51 +23,39 @@
     } from 'vuex'
     import {
         SET_PERSONAL_INFO
-    } from '../../../store/mutation-types'
+    } from '@/store/mutation-types'
     import {
         LoadImage
-    } from '../../../utils/loaders'
+    } from '@/utils/loaders'
 
-    export default {
-        name: 'LoadImage',
-        setup() {
-            const store = useStore()
+    const store = useStore()
 
-            const imageURL = ref('')
-            const inputURL = ref('')
+    const imageURL = ref('')
+    const inputURL = ref('')
 
-            let timeout = null
+    let timeout = null
 
-            watch(imageURL, (newValue) => {
-                store.commit(SET_PERSONAL_INFO, {
-                    value: newValue,
-                    key: 'image'
-                })
+    watch(imageURL, (newValue) => {
+        store.commit(SET_PERSONAL_INFO, {
+            value: newValue,
+            key: 'image'
+        })
+    })
+
+    watch(inputURL, (newValue) => {
+        timeout && clearTimeout(timeout)
+
+        timeout = setTimeout(() => {
+            store.commit(SET_PERSONAL_INFO, {
+                value: newValue,
+                key: 'image'
             })
+        }, 500)
+    })
 
-            watch(inputURL, (newValue) => {
-                timeout && clearTimeout(timeout)
-
-                timeout = setTimeout(() => {
-                    store.commit(SET_PERSONAL_INFO, {
-                        value: newValue,
-                        key: 'image'
-                    })
-                }, 500)
-            })
-
-            function doLoad() {
-                LoadImage('#image', imageURL)
-            }
-
-            return {
-                doLoad,
-                imageURL,
-                inputURL
-            }
-        }
+    function doLoad() {
+        LoadImage('#image', imageURL)
     }
-
 </script>
 
 <style lang="scss" scoped>

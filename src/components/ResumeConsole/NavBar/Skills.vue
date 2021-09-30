@@ -58,7 +58,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         reactive
     } from 'vue'
@@ -69,38 +69,23 @@
 
     import {
         ADD_SKILL_ITEM
-    } from '../../../store/mutation-types'
+    } from '@/store/mutation-types'
     import AddButton from '../Input/AddButton'
     import RemoveButton from '../Input/RemoveButton'
 
-    export default {
-        components: {
-            AddButton,
-            RemoveButton
-        },
-        setup() {
-            const store = useStore()
+    const store = useStore()
 
-            const skills = store.state.skills
+    const skills = store.state.skills
 
-            const skillItem = reactive({
-                type: '类型',
-                skill: [{
-                    title: '标题',
-                    descriptions: [
-                        '描述'
-                    ]
-                }]
-            })
-
-            return {
-                skills,
-                skillItem,
-                ADD_SKILL_ITEM
-            }
-        }
-    }
-
+    const skillItem = reactive({
+        type: '类型',
+        skill: [{
+            title: '标题',
+            descriptions: [
+                '描述'
+            ]
+        }]
+    })
 </script>
 
 <style lang="scss" scoped>

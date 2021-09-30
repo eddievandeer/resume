@@ -6,21 +6,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         ref
     } from 'vue'
-    export default {
-        name: 'ToolTip',
-        setup() {
-            let show = ref(false)
 
-            return {
-                show
-            }
-        }
-    }
-
+    let show = ref(false)
 </script>
 
 <style lang="scss" scoped>

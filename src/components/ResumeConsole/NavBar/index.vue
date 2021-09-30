@@ -18,9 +18,10 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
-        ref
+        ref,
+        reactive
     } from 'vue'
 
     import Info from './Info'
@@ -29,48 +30,28 @@
     import Experiences from './Experiences'
     import Theme from './Theme'
 
-    export default {
-        components: {
-            Info,
-            Internship,
-            Skills,
-            Experiences,
-            Theme
-        },
-        setup() {
-            const show = ref(0)
-            const navBar = ref()
+    const show = ref(0)
+    const navBar = ref()
 
-            const components = ['info', 'internship', 'skills', 'experiences', 'theme']
+    const components = [Info, Internship, Skills, Experiences, Theme]
 
-            const description = ['个人信息', '实习经历', '掌握技能', '项目经历', '主题设置']
+    const description = ['个人信息', '实习经历', '掌握技能', '项目经历', '主题设置']
 
-            const handleClick = (direction) => {
-                if (direction) {
-                    navBar.value.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: 'smooth'
-                    })
-                } else {
-                    navBar.value.scrollTo({
-                        top: 0,
-                        left: navBar.value.clientWidth,
-                        behavior: 'smooth'
-                    })
-                }
-            }
-
-            return {
-                show,
-                navBar,
-                components,
-                description,
-                handleClick
-            }
+    const handleClick = (direction) => {
+        if (direction) {
+            navBar.value.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        } else {
+            navBar.value.scrollTo({
+                top: 0,
+                left: navBar.value.clientWidth,
+                behavior: 'smooth'
+            })
         }
     }
-
 </script>
 
 <style lang="scss" scoped>

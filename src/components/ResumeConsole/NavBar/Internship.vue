@@ -37,7 +37,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import {
         reactive
     } from 'vue'
@@ -48,37 +48,22 @@
 
     import {
         ADD_INTERNSHIP_EXPERIENCE
-    } from '../../../store/mutation-types'
+    } from '@/store/mutation-types'
     import AddButton from '../Input/AddButton'
     import RemoveButton from '../Input/RemoveButton'
 
-    export default {
-        components: {
-            AddButton,
-            RemoveButton
-        },
-        setup() {
-            const store = useStore()
+    const store = useStore()
 
-            const internship = store.state.internship
+    const internship = store.state.internship
 
-            const internshipItem = reactive({
-                title: '实习公司',
-                startTime: '起始时间',
-                endTime: '结束时间',
-                descriptions: [
-                    '实习经历描述'
-                ]
-            })
-
-            return {
-                internship,
-                internshipItem,
-                ADD_INTERNSHIP_EXPERIENCE
-            }
-        }
-    }
-
+    const internshipItem = reactive({
+        title: '实习公司',
+        startTime: '起始时间',
+        endTime: '结束时间',
+        descriptions: [
+            '实习经历描述'
+        ]
+    })
 </script>
 
 <style lang="scss" scoped>
