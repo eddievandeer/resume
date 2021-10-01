@@ -51,12 +51,19 @@
                             'onUpdate:modelValue': value => printType.value = value,
                             label: 1
                         }, {
-                            default: () => h('span', null, '打印PDF格式')
+                            default: () => h('span', null, '打印图片PDF格式(不可复制)')
                         }),
                         h(MyRadio, {
                             modelValue: printType,
                             'onUpdate:modelValue': value => printType.value = value,
                             label: 2
+                        }, {
+                            default: () => h('span', null, '打印文字PDF格式(可复制)')
+                        }),
+                        h(MyRadio, {
+                            modelValue: printType,
+                            'onUpdate:modelValue': value => printType.value = value,
+                            label: 3
                         }, {
                             default: () => h('span', null, '打印JPG格式')
                         })
@@ -70,6 +77,13 @@
                             ExportSavePdf('#pdfCentent', value)
                             break
                         case 2:
+                            setTimeout(() => {
+                                document.title = value
+                                window.print();
+                                document.title = '简历生成器'
+                            }, 500)
+                            break
+                        case 3:
                             ExportSaveJpg('#pdfCentent', value)
                             break
                         default:
