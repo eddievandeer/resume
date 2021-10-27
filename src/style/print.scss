@@ -1,0 +1,22 @@
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    .console-wrapper {
+        display: none;
+    }
+
+    .resume-container {
+        padding: 0 !important;
+        background-color: transparent;
+    }
+
+    .print-wrapper {
+        display: none;
+    }
+
+    .back-to-top {
+        display: none;
+    }
+}

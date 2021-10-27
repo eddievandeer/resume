@@ -54,8 +54,8 @@
         align-items: flex-start;
 
         .resume {
-            width: 840px;
-            min-height: 988px;
+            width: 794px;
+            min-height: 1123px;
             background-color: white;
             display: flex;
 
