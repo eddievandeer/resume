@@ -33,6 +33,8 @@
                 name: '姓名',
                 job: '求职岗位',
                 gender: '输入性别',
+                age: '输入年龄',
+                qualification: '输入学历',
                 university: '毕业院校',
                 major: '所学专业',
                 email: '联系邮箱',
