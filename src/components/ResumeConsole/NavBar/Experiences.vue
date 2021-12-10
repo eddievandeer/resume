@@ -7,7 +7,7 @@
                 </my-input>
                 <div class="input-item" v-for="(detail, index1) in item.details" :key="index1">
                     <my-input v-model="detail.title">
-                        <span>标题</span>
+                        <span>标题 (选填)</span>
                     </my-input>
                     <div class="input-item">
                         <div v-for="(description, index2) in detail.descriptions" :key="index2">

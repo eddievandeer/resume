@@ -7,7 +7,7 @@
                 </my-input>
                 <div class="input-item" v-for="(skill, key2) in item.skill" :key="key2">
                     <my-input v-model="skill.title">
-                        <span>{{'标题'}}</span>
+                        <span>标题 (选填)</span>
                     </my-input>
                     <div class="input-item">
                         <div v-for="(description, index) in skill.descriptions" :key="index">
