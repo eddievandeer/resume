@@ -10,10 +10,13 @@
                         <span>标题 (选填)</span>
                     </my-input>
                     <div class="input-item">
-                        <div v-for="(description, index) in skill.descriptions" :key="index">
+                        <div class="input-description" v-for="(description, index) in skill.descriptions" :key="index">
                             <my-input v-model="skill.descriptions[index]" type="textarea">
                                 <span>{{'描述'+(index+1)}}</span>
                             </my-input>
+                            <remove-button :target="skill.descriptions" :index="index" :type="'text'">
+                                删除
+                            </remove-button>
                         </div>
                         <div class="controller-btns">
                             <add-button :target="skill.descriptions" :item="''">
@@ -110,6 +113,11 @@
 
     .add-skill-item {
         margin-top: 1rem;
+    }
+
+    .input-description {
+        display: flex;
+        justify-content: space-between;
     }
 
 </style>
