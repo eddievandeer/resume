@@ -1,8 +1,8 @@
 <template>
     <div class="delete-wrapper">
-        <button class="btn danger delete-button" @click="handler">
+        <button :class="['btn danger delete-button', type]" @click="handler">
             <i class="fa fa-trash" aria-hidden="true"></i>
-            <span>
+            <span class="btn-text">
                 <slot></slot>
             </span>
         </button>
@@ -14,7 +14,11 @@
         name: 'RemoveButton',
         props: {
             target: Array,
-            index: Number
+            index: Number,
+            type: {
+                type: String,
+                default: 'default'
+            }
         },
         setup(props) {
             function handler() {
@@ -33,14 +37,26 @@
     .delete-wrapper {
         display: flex;
         justify-content: center;
+    }
 
-        .delete-button {
-            border-radius: 25px;
+    .delete-button[class] {
+        border-radius: 25px;
 
-            i {
-                margin-right: .2rem;
-            }
+        i {
+            margin-right: .2rem;
         }
+    }
+
+    .delete-button.text {
+        padding: 0;
+
+        &:hover {
+            color: #f56c6c;
+        }
+    }
+
+    .btn-text {
+        white-space: nowrap;
     }
 
 </style>

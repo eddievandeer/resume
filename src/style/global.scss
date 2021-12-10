@@ -178,6 +178,20 @@ textarea.console-input {
     }
 }
 
+.btn.text {
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        border: none;
+        background-color: transparent;
+    }
+
+    &:active {
+        border: transparent;
+    }
+}
+
 h3 {
     font-size: 1.2rem;
 }
