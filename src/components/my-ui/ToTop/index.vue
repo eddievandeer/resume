@@ -74,32 +74,31 @@
 <style lang="scss" scoped>
     .back-to-top {
         display: block;
-
-        .go-to-top {
-            cursor: pointer;
-            position: fixed;
-            bottom: 2rem;
-            right: 2.5rem;
-            width: 2rem;
-            color: #2a80b9;
-            transition: all .3s ease-in-out;
-            z-index: 1;
-
-            &.show {
-                transform: rotateZ(0turn);
-                opacity: 1;
-            }
-
-            &.show-active {
-                transform: rotateZ(0.5turn);
-                opacity: 0;
-            }
-
-            &.fade-active {
-                transform: rotateZ(0.5turn);
-                opacity: 0;
-            }
-        }
     }
 
+    .go-to-top {
+        cursor: pointer;
+        position: fixed;
+        bottom: 2rem;
+        right: 2.5rem;
+        width: 2rem;
+        color: #2a80b9;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+
+        &.show {
+            transform: rotateZ(0turn);
+            opacity: 1;
+        }
+
+        &.show-active {
+            transform: rotateZ(0.5turn);
+            opacity: 0;
+        }
+
+        &.fade-active {
+            transform: rotateZ(0.5turn);
+            opacity: 0;
+        }
+    }
 </style>

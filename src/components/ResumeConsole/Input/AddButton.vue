@@ -54,14 +54,13 @@
     .add-wrapper {
         display: flex;
         justify-content: center;
-
-        .add-button {
-            border-radius: 25px;
-
-            i {
-                margin-right: .2rem;
-            }
-        }
     }
 
+    .add-button {
+        border-radius: 25px;
+
+        i {
+            margin-right: .2rem;
+        }
+    }
 </style>

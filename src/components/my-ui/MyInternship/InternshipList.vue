@@ -36,17 +36,17 @@
 <style lang="scss" scoped>
     .internship {
         position: relative;
+    }
 
-        .internship-type {
-            position: absolute;
-            top: 5px;
-            right: 5px;
+    .internship-type {
+        position: absolute;
+        top: 5px;
+        right: 5px;
 
-            span {
-                color: #464646;
-                font-size: 14px;
-                font-weight: bold;
-            }
+        span {
+            color: #464646;
+            font-size: 14px;
+            font-weight: bold;
         }
     }
 </style>

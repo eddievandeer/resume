@@ -177,38 +177,37 @@
         justify-content: flex-end;
         position: relative;
 
-        .close-btn {
-            opacity: 0;
-            color: #c0c4cc;
-            background-color: transparent;
-            position: absolute;
-            bottom: .7rem;
-            right: .3rem;
-
-            &:hover {
-                color: #909399;
-            }
-        }
-
-        .console-input-label {
-            width: fit-content;
-            font-size: 14px;
-            transition: all .2s ease-in-out;
-            pointer-events: none;
-            user-select: none;
-            position: absolute;
-
-            &:focus {
-                top: 1rem;
-                left: 13px;
-                font-size: 18px;
-            }
-        }
-
         &:hover .close-btn,
         .console-input:focus+.close-btn {
             opacity: 1;
         }
     }
 
+    .close-btn {
+        opacity: 0;
+        color: #c0c4cc;
+        background-color: transparent;
+        position: absolute;
+        bottom: .7rem;
+        right: .3rem;
+
+        &:hover {
+            color: #909399;
+        }
+    }
+
+    .console-input-label {
+        width: fit-content;
+        font-size: 14px;
+        transition: all .2s ease-in-out;
+        pointer-events: none;
+        user-select: none;
+        position: absolute;
+
+        &:focus {
+            top: 1rem;
+            left: 13px;
+            font-size: 18px;
+        }
+    }
 </style>

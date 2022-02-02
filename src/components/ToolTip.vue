@@ -24,24 +24,20 @@
 </script>
 
 <style lang="scss" scoped>
-    .tooltip {
+    .tooltip__ropper {
+        background-color: #303133;
 
-        .tooltip__ropper {
-            background-color: #303133;
-
-            &::after {
-                content: ' ';
-                position: absolute;
-                display: block;
-                bottom: -5px;
-                left: 1px;
-                border-color: transparent;
-                border-style: solid;
-                border-width: 5px;
-                border-right-color: #303133;
-                border-left-width: 0;
-            }
+        &::after {
+            content: ' ';
+            position: absolute;
+            display: block;
+            bottom: -5px;
+            left: 1px;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px;
+            border-right-color: #303133;
+            border-left-width: 0;
         }
     }
-
 </style>

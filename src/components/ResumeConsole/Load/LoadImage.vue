@@ -76,17 +76,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        .upload-btn {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            i {
-                font-size: 26px;
-            }
-        }
     }
 
+    .upload-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            font-size: 26px;
+        }
+    }
 </style>

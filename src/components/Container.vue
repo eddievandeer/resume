@@ -52,19 +52,18 @@
         display: flex;
         justify-content: space-evenly;
         align-items: flex-start;
-
-        .resume {
-            width: 794px;
-            min-height: 1123px;
-            background-color: white;
-            display: flex;
-
-            .pluggable {
-                padding-top: .6rem;
-                padding-bottom: 2rem;
-                flex: 3;
-            }
-        }
     }
 
+    .resume {
+        width: 794px;
+        min-height: 1123px;
+        background-color: white;
+        display: flex;
+    }
+
+    .pluggable {
+        padding-top: .6rem;
+        padding-bottom: 2rem;
+        flex: 3;
+    }
 </style>

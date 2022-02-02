@@ -107,18 +107,17 @@
         position: fixed;
         top: 1rem;
         right: 1rem;
-
-        .print-btn {
-
-            i {
-                font-size: 24px;
-            }
-
-            i+span {
-                font-size: 14px;
-                margin-left: .5rem;
-            }
-        }
     }
 
+    .print-btn {
+
+        i {
+            font-size: 24px;
+        }
+
+        i+span {
+            font-size: 14px;
+            margin-left: .5rem;
+        }
+    }
 </style>

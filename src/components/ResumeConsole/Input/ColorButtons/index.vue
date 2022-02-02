@@ -44,12 +44,11 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-
-        .color-button {
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-        }
     }
 
+    .color-button {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+    }
 </style>

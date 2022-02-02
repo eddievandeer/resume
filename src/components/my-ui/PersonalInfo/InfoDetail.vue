@@ -35,24 +35,23 @@
     .info-detail {
         width: 100%;
         margin-top: 1.6rem;
-
-        .info-detail-item {
-            margin-bottom: 1.2rem;
-
-            h2 {
-                letter-spacing: 1px;
-                margin-bottom: .6rem;
-
-                i {
-                    margin-right: .8rem;
-                }
-            }
-
-            p {
-                line-height: 1.2rem;
-                margin-bottom: .3rem;
-            }
-        }
     }
 
+    .info-detail-item {
+        margin-bottom: 1.2rem;
+
+        h2 {
+            letter-spacing: 1px;
+            margin-bottom: .6rem;
+
+            i {
+                margin-right: .8rem;
+            }
+        }
+
+        p {
+            line-height: 1.2rem;
+            margin-bottom: .3rem;
+        }
+    }
 </style>

@@ -51,39 +51,6 @@
         box-sizing: border-box;
         border-bottom: 1px solid transparent;
 
-        .drawer-title {
-            width: 100%;
-            height: 2rem;
-            color: #303133;
-            padding: .6rem 0;
-            border-bottom: 1px solid #ebeef5;
-            cursor: pointer;
-            transition: all .2s ease-in-out;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            span,
-            i {
-                pointer-events: none;
-            }
-
-            i {
-                margin-right: .5rem;
-                transition: transform .2s ease-in-out;
-            }
-
-            &:hover {
-                color: #409EFF;
-            }
-        }
-
-        .drawer {
-            will-change: height;
-            padding-bottom: 1rem;
-            transition: all .2s ease-in-out;
-        }
-
         &.active {
             border-bottom: 1px solid #ebeef5;
 
@@ -98,4 +65,36 @@
         }
     }
 
+    .drawer-title {
+        width: 100%;
+        height: 2rem;
+        color: #303133;
+        padding: .6rem 0;
+        border-bottom: 1px solid #ebeef5;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span,
+        i {
+            pointer-events: none;
+        }
+
+        i {
+            margin-right: .5rem;
+            transition: transform .2s ease-in-out;
+        }
+
+        &:hover {
+            color: #409EFF;
+        }
+    }
+
+    .drawer {
+        will-change: height;
+        padding-bottom: 1rem;
+        transition: all .2s ease-in-out;
+    }
 </style>

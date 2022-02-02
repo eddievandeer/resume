@@ -97,62 +97,61 @@
         position: fixed;
         top: 0;
         left: 0;
+    }
 
-        .message-box {
-            display: inline-block;
-            width: 400px;
-            padding-bottom: 1rem;
-            vertical-align: middle;
-            background-color: #fff;
-            border-radius: 4px;
-            border: 1px solid #ebeef5;
-            font-size: 18px;
-            box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-            text-align: left;
-            overflow: hidden;
-            backface-visibility: hidden;
+    .message-box {
+        display: inline-block;
+        width: 400px;
+        padding-bottom: 1rem;
+        vertical-align: middle;
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #ebeef5;
+        font-size: 18px;
+        box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+        text-align: left;
+        overflow: hidden;
+        backface-visibility: hidden;
+    }
+    .message-box-header {
+        position: relative;
+        padding: 15px 15px 10px;
+    }
+    
+    .message-box-title {
+        font-size: 18px;
+        line-height: 1;
+        color: #303133;
+    }
 
-            .message-box-header {
-                position: relative;
-                padding: 15px 15px 10px;
+    .close {
+        color: #909399;
+        background-color: transparent;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        vertical-align: baseline;
+        position: absolute;
+        top: .3rem;
+        right: .3rem;
+        cursor: pointer;
 
-                .message-box-title {
-                    font-size: 18px;
-                    line-height: 1;
-                    color: #303133;
-                }
+        :hover {
+            color: #409EFF;
+        }
+    }
 
-                .close {
-                    color: #909399;
-                    background-color: transparent;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 300;
-                    font-variant: normal;
-                    text-transform: none;
-                    line-height: 1;
-                    vertical-align: baseline;
-                    position: absolute;
-                    top: .3rem;
-                    right: .3rem;
-                    cursor: pointer;
+    .message-box-detail {
+        padding: 10px 15px;
+        color: #606266;
+        font-size: 14px;
 
-                    :hover {
-                        color: #409EFF;
-                    }
-                }
-            }
-
-            .message-box-detail {
-                padding: 10px 15px;
-                color: #606266;
-                font-size: 14px;
-
-                .action {
-                    width: 100%;
-                    height: 40px;
-                }
-            }
+        .action {
+            width: 100%;
+            height: 40px;
         }
     }
 
