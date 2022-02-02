@@ -24,7 +24,7 @@
         height: 100vh;
         border-right: 1px solid #e0e0e0;
         box-sizing: border-box;
-        padding: 1.5rem;
+        padding: 0 1.5rem 1.5rem;
         flex: 1;
         overflow: auto;
         position: sticky;
