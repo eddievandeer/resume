@@ -9,9 +9,17 @@
                 <i class="fa fa-angle-left"></i>
             </button>
             <div class="nav-bar" ref="navBar">
-                <div class="nav-bar-buttons">
-                    <button class="nav-bar-btn btn menu" :class="{'active':index==show}" v-for="(text, index) in description"
-                    :key="index" @click="show = index">{{text}}</button>
+                <div class="nav-bar-buttons" ref="buttons">
+                    <div class="nav-bar-button" v-for="(text, index) in description" :key="text">
+                        <button
+                            class="nav-bar-btn btn menu"
+                            :class="{'active':index==show}"
+                            @click="show = index"
+                        >
+                            {{text}}
+                        </button>
+                        <my-switch v-if="parts[components[index]] !== undefined" v-model="parts[components[index]]"/> 
+                    </div>
                 </div>
             </div>
             <button
@@ -33,6 +41,8 @@
 </template>
 
 <script>
+    const scrollStep = 150
+
     import {
         reactive,
         ref,
@@ -61,6 +71,7 @@
 
             const show = ref(0)
             const navBar = ref()
+            const buttons = ref()
             const leftDisable = ref(true)
             const rightDisable = ref(false)
 
@@ -87,15 +98,28 @@
             }
 
             const handleClick = (direction) => {
+                let preScroll = navBar.value.scrollLeft
+                const maxScroll = buttons.value.scrollWidth
+
                 if (direction) {
-                    handleScroll(0, 0)
-                    leftDisable.value = true
-                    rightDisable.value = false
+                    if(preScroll == 0 || preScroll - scrollStep < 0) {
+                        preScroll = 0
+                        leftDisable.value = true
+                    } else {
+                        preScroll -= scrollStep
+                        rightDisable.value = false
+                    }
                 } else {
-                    handleScroll(navBar.value.clientWidth, 0)
-                    leftDisable.value = false
-                    rightDisable.value = true
+                    if(preScroll == maxScroll || preScroll + navBar.value.clientWidth + scrollStep >= maxScroll) {
+                        preScroll = maxScroll
+                        rightDisable.value = true
+                    } else {
+                        preScroll += scrollStep
+                        leftDisable.value = false
+                    }
                 }
+
+                handleScroll(preScroll, 0)
             }
 
             watch([internship, skills, experiences], (newParts, preParts) => {
@@ -117,6 +141,7 @@
             return {
                 show,
                 navBar,
+                buttons,
                 components,
                 description,
                 handleClick,
@@ -154,6 +179,25 @@
         align-items: flex-start;
     }
 
+    .nav-bar-button {
+        position: relative;
+        padding: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &+.nav-bar-button::before {
+            content: '';
+            width: 1px;
+            height: 20px;
+            background: #c0c4cc;
+            transform: translate(0, -50%);
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+    }
+
     .nav-bar-btn,
     .nav-bar-controller {
         height: 3rem;
@@ -176,6 +220,7 @@
     }
 
     [class].nav-bar-controller {
+        z-index: 50;
         width: 2rem;
         padding: 0;
         font-size: 24px;
@@ -191,13 +236,13 @@
         &.left {
             background-image: linear-gradient(to right, white 60%, transparent);
             justify-content: flex-start;
-            left: 0;
+            left: -10px;
         }
 
         &.right {
             background-image: linear-gradient(to left, white 60%, transparent);
             justify-content: flex-end;
-            right: 0;
+            right: -10px;
         }
 
         &:disabled {
