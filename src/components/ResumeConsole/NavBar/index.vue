@@ -34,8 +34,13 @@
 
 <script>
     import {
-        ref
+        reactive,
+        ref,
+        watch
     } from 'vue'
+    import { useStore } from 'vuex'
+
+    import { SET_PARTS } from '../../../store/mutation-types'
 
     import Info from './Info'
     import Internship from './Internship'
@@ -52,12 +57,22 @@
             Theme
         },
         setup() {
+            const store = useStore()
+
             const show = ref(0)
             const navBar = ref()
-            const leftDisable = ref(false)
+            const leftDisable = ref(true)
             const rightDisable = ref(false)
 
-            let timer = null
+            const internship = ref(true)
+            const skills = ref(true)
+            const experiences = ref(true)
+
+            const parts = reactive({
+                internship,
+                skills,
+                experiences
+            })
 
             const components = ['info', 'internship', 'skills', 'experiences', 'theme']
 
@@ -83,6 +98,22 @@
                 }
             }
 
+            watch([internship, skills, experiences], (newParts, preParts) => {
+                const keys = Object.keys(parts)
+                newParts.forEach((part, index) => {
+                    if(part == preParts[index]) return
+
+                    if(!part) {
+                        store.commit(SET_PARTS, `my-${keys[index]}`)
+                    } else {
+                        store.commit(SET_PARTS, {
+                            name: `my-${keys[index]}`,
+                            index
+                        })
+                    }
+                })
+            })
+
             return {
                 show,
                 navBar,
@@ -90,7 +121,8 @@
                 description,
                 handleClick,
                 leftDisable,
-                rightDisable
+                rightDisable,
+                parts
             }
         }
     }

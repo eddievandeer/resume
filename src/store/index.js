@@ -16,6 +16,7 @@ import {
 } from './mutation-types'
 
 import copy from '../utils/copy'
+import { isObj } from '../utils'
 
 export default createStore({
     state: {
@@ -93,9 +94,19 @@ export default createStore({
             state.experiences.splice(0, state.experiences.length)
             experiences && state.experiences.push(...experiences)
         },
-        [SET_PARTS](state, parts) {
-            state.parts.splice(0, state.parts.length)
-            state.parts.push(parts)
+        [SET_PARTS](state, part) {
+            if(isObj(part)) {
+                const { name, index } = part
+                state.parts.splice(index, 0, name)
+                return
+            }
+            const index = state.parts.indexOf(part)
+
+            if(index !== -1) {
+                state.parts.splice(index, 1)
+            } else {
+                throw TypeError('The part to be removed is not exist!')
+            }
         },
         [ADD_SKILL_ITEM](state, item) {
             const ownItem = {}
