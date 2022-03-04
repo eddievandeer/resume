@@ -1,12 +1,16 @@
 <template>
     <div class="color-buttons" v-if="theme.type == 'normal'">
-        <button v-for="color in colors" :key="color" :class="['color-button', color]" @click="setColor(color)"></button>
+        <button v-for="(color, index) in colors" :key="color" :class="['color-button', color]" @click="setColor(color, index)">
+            <span class="color-check" v-if="active == index">
+                <i class="fa fa-check" aria-hidden="true"></i>
+            </span>
+        </button>
     </div>
 </template>
 
 <script>
     import {
-        watch
+        ref
     } from 'vue'
     import {
         useStore
@@ -21,15 +25,19 @@
         setup() {
             const store = useStore()
 
+            const active = ref(0)
+
             const theme = store.state.theme
 
-            function setColor(color) {
+            function setColor(color, index) {
+                active.value = index
                 store.commit(SET_COLOR, color)
             }
 
             return {
                 colors,
                 setColor,
+                active,
                 theme
             }
         }
@@ -50,5 +58,10 @@
         width: 1rem;
         height: 1rem;
         border-radius: 50%;
+    }
+
+    .color-check {
+        color: white;
+        font-size: 10px;
     }
 </style>
