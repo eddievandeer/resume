@@ -57,7 +57,7 @@ p {
     line-height: 1.5rem;
 
     i {
-        font-size: 14px !important;
+        font-size: 12px !important;
         margin-right: .4rem;
         line-height: 1.5rem !important;
     }
@@ -220,4 +220,12 @@ h3 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.resume.vertical {
+    flex-direction: column;
+}
+
+.resume.horizontal {
+    flex-direction: row;
 }

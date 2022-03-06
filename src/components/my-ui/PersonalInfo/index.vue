@@ -83,6 +83,8 @@
         align-items: center;
 
         .info-image {
+            width: fit-content;
+            white-space:nowrap;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
