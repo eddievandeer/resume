@@ -1,22 +1,8 @@
 import { createStore } from 'vuex'
-import {
-    SET_PERSONAL_INFO,
-    SET_INTERNSHIP,
-    SET_SKILLS,
-    SET_EXPERIENCES,
-    SET_PARTS,
-    ADD_SKILL_ITEM,
-    ADD_EXPERIENCE,
-    ADD_INTERNSHIP_EXPERIENCE,
-    REMOVE_PART,
-    RESTORE_ALL,
-    SET_COLOR,
-    SET_THEME_TYPE,
-    CHANGE_THE_ORDER,
-} from './mutation-types'
-
-import copy from '../utils/copy'
-import { isObj } from '../utils'
+import infoMutation from './info'
+import skillsMutation from './skills'
+import experiencesMutation from './experiences'
+import themeMutation from './theme'
 
 export default createStore({
     state: {
@@ -73,92 +59,10 @@ export default createStore({
         }
     },
     mutations: {
-        [SET_PERSONAL_INFO](state, info) {
-            if (info.key) {
-                state.personalInfo[info.key] = info.value
-            }
-            else {
-                copy(state.personalInfo, info)
-                console.log('copy object');
-            }
-        },
-        [SET_INTERNSHIP](state, internship) {
-            state.internship.splice(0, state.internship.length)
-            internship && state.internship.push(...internship)
-        },
-        [SET_SKILLS](state, skills) {
-            state.skills.splice(0, state.skills.length)
-            skills && state.skills.push(...skills)
-        },
-        [SET_EXPERIENCES](state, experiences) {
-            state.experiences.splice(0, state.experiences.length)
-            experiences && state.experiences.push(...experiences)
-        },
-        [SET_PARTS](state, part) {
-            if(isObj(part)) {
-                const { name, index } = part
-                state.parts.splice(index, 0, name)
-                return
-            }
-            const index = state.parts.indexOf(part)
-
-            if(index !== -1) {
-                state.parts.splice(index, 1)
-            } else {
-                throw TypeError('The part to be removed is not exist!')
-            }
-        },
-        [ADD_SKILL_ITEM](state, item) {
-            const ownItem = {}
-            copy(ownItem, item)
-            state.skills.push(ownItem)
-        },
-        [ADD_EXPERIENCE](state, item) {
-            const ownItem = {}
-            copy(ownItem, item)
-            state.experiences.push(ownItem)
-        },
-        [ADD_INTERNSHIP_EXPERIENCE](state, item) {
-            const ownItem = {}
-            copy(ownItem, item)
-            state.internship.push(ownItem)
-        },
-        [REMOVE_PART](state, index) {
-            state.parts.splice(index, 1)
-        },
-        [RESTORE_ALL](state) {
-            copy(state.personalInfo, {
-                name: '',
-                image: '',
-                education: {
-                    university: '',
-                    major: ''
-                },
-                github: '',
-                blog: '',
-                contact: {
-                    email: '',
-                    tel: ''
-                }
-            })
-            state.skills.splice(0, state.skills.length)
-            state.experiences.splice(0, state.experiences.length)
-            state.parts.splice(0, state.parts.length)
-            state.parts.push('MyInternship', 'my-skills', 'my-experiences')
-        },
-        [SET_COLOR](state, color) {
-            state.theme.color = color
-        },
-        [SET_THEME_TYPE](state, type) {
-            state.theme.type = type
-        },
-        [CHANGE_THE_ORDER](state, payload) {
-            const target = state[payload.type]
-            const temp = target[payload.from]
-
-            target[payload.from] = target[payload.to]
-            target[payload.to] = temp
-        }
+        ...infoMutation,
+        ...skillsMutation,
+        ...experiencesMutation,
+        ...themeMutation
     },
     actions: {},
     modules: {}
