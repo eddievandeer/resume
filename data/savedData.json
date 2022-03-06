@@ -1,97 +1,55 @@
 {
     "personalInfo": {
-        "name": "郑炜焜",
+        "name": "Vivek",
         "image": "https://i.loli.net/2021/04/23/HFojX2hykxIOVaU.png",
-        "gender": "男",
-        "job": "Web前端开发",
-        "university": "河南科技大学",
+        "gender": "保密",
+        "age": "21",
+        "job": "Web前端开发 - 22届",
+        "qualification": "本科",
+        "university": "xxxx大学",
         "major": "计算机科学与技术",
         "github": "https://github.com/eddievandeer",
-        "blog": "https://vivekblog.vercel.app/",
+        "blog": "https://cavalheiro.cn/",
         "email": "eddievandeer@163.com",
-        "tel": "13213532861"
+        "tel": "132****2861"
     },
+    "internship": [{
+        "title": "实习公司",
+        "startTime": "",
+        "endTime": "",
+        "descriptions": [
+            "实习经历描述"
+        ]
+    }],
     "skills": [{
-            "type": "前端基础",
-            "skill": [{
-                    "title": "HTML5/CSS3",
-                    "descriptions": [
-                        "熟悉HTML5和CSS3，能够编写语义化的HTML，模块化的CSS，实现较复杂的布局与动画",
-                        "阅读过《CSS揭秘》一书，能够熟练使用CSS来进行页面设计"
-                    ]
-                },
-                {
-                    "title": "JavaScript",
-                    "descriptions": [
-                        "阅读过《Javascript高级程序设计（第四版）》一书，有较好的Javascript基础",
-                        "了解ECMAScript新标准，并愿意尝试在项目中使用"
-                    ]
-                },
-                {
-                    "title": "浏览器",
-                    "descriptions": ["了解浏览器的相关原理，如DOM的构建、渲染原理"]
-                }
-            ]
-        }, {
-            "type": "前端工程化",
-            "skill": [{
-                    "title": "Vue",
-                    "descriptions": [
-                        "熟悉Vue及其相关类库的使用，有使用Vue3开发项目的经验",
-                        "阅读过部分Vue的源码，了解数据劫持和模板编译原理"
-                    ]
-                },
-                {
-                    "title": "构建工具",
-                    "descriptions": ["使用过Webpack、vite等前端构建工具，对rollup也有一定的了解"]
-                }
-            ]
-        },
-        {
-            "type": "后端",
-            "skill": [{
-                    "title": "Node.js",
-                    "descriptions": [
-                        "熟悉Node及其相关类库，能够使用express框架搭建简单的后端服务与数据库交互",
-                        "使用socket.io开发过简易的聊天室"
-                    ]
-                },
-                {
-                    "title": "Java",
-                    "descriptions": ["熟练掌握Java基础语法，了解Spring框架并使用其开发过项目"]
-                }
-            ]
-        },
-        {
-            "type": "其他",
-            "descriptions": [
-                "开发时注重用户体验，喜欢写用着舒服的页面",
-                "享受自己开发ui组件的过程，较少使用ElementUI等ui框架",
-                "阅读过《写给大家看的设计书》，有一定的设计基础，并且自身也有一定的美术功底"
-            ]
-        }
-    ],
+        "type": "前端基础",
+        "skill": [{
+            "title": "",
+            "descriptions": ["熟练掌握 HTML 及 CSS ，并对 CSS3D 和动画有较深入的了解", "熟练掌握 JavaScript，对原型及继承等知识点有较深的理解", "有在项目中使用 TypeScript 及 CSS 预处理工具（less、sass）进行开发的经验", "了解浏览器的相关原理，熟悉浏览器解析渲染页面的过程"]
+        }]
+    }, {
+        "type": "前端工程化",
+        "skill": [{
+            "title": "",
+            "descriptions": ["熟悉 Vue 及其全家桶，了解 vue-router 的实现原理，同时有使用 Vue3 独立开发小型项目的经验", "阅读过部分 Vue2 的源码，了解数据劫持和模板编译等原理，并手写实现过一个简易的 Vue", "熟悉 react 语法，了解 react-hook 、redux ，参与开发和维护过使用 react 技术栈实现的大型项目", "使用过 webpack、vite，对 webpack 优化有一定的了解"]
+        }]
+    }, {
+        "type": "其他",
+        "skill": [{
+            "title": "",
+            "descriptions": ["熟悉Nodejs及其相关类库，能够使用express、eggjs框架搭建后端服务与MySQL和MongoDB数据库交互", "了解 Hybrid App ，并在毕业设计的项目中使用了 React-Native 开发一款即时通讯 App", "熟悉常用的数据结构与算法，且对前端网络安全有一定了解"]
+        }]
+    }],
     "experiences": [{
         "type": "个人项目",
         "details": [{
-                "source": "https://github.com/eddievandeer/eddievandeer.github.io",
-                "title": "Blog 2020.8至今",
-                "descriptions": [
-                    "个人博客网站，由VuePress构建，同时使用了Vue，VueRouter，webpack，sass自行开发实现响应式布局的VuePress主题",
-                    "使用Github Actions持续集成服务来进行自动部署，方便每次博客内容的更新",
-                    "为解决静态博客评论的问题，引入了无后端评论系统Valine",
-                    "由于DNS污染或网络状况原因，有时访问不了github.io的页面，因此部署到Vercel上"
-                ]
-            },
-            {
-                "source": "https://github.com/eddievandeer/course-design",
-                "title": "hotel-client 2020.12",
-                "descriptions": [
-                    "大三课程综合设计，基于vue3及最新版的vue-router、vuex搭建的酒店管理系统",
-                    "该项目实现前后端分离，后端使用Spring Boot开发，前端使用axios发送请求",
-                    "自行开发了多个可复用的ui组件"
-                ]
-            }
-        ]
+            "source": "https://github.com/eddievandeer/eddievandeer.github.io",
+            "title": "酒店后台管理系统 2020.12 - 2021.1",
+            "descriptions": ["大三课程综合设计，担任组长角色，主要负责项目原型的设计、前端技术选型、项目整体架构的搭建、部分的编码实现及接口文档的撰写", "该项目实现前后端分离，前端使用 axios 发送请求，后端使用 Spring Boot 开发，同时使用 Nginx 反向代理解决了跨域问题", "前端技术栈选用了刚出不久的正式版 Vue3 及最新版的 vue-router、vuex，配合 Typescript 及 sass 搭建项目", "出于学习目的，未使用 ui 组件库，参考 ElementUI 源码自行开发了多个可复用的 ui 组件"]
+        }, {
+            "source": "https://github.com/eddievandeer/course-design",
+            "title": "个人博客网站 2020.8 - 至今",
+            "descriptions": ["基于 VuePress 构建的静态个人博客网站，部署在 GitHubPages上 ，并绑定了自己的域名", "使用 vue2，vue-router，webpack，sass 开发一套实现了响应式布局的 VuePress 主题，并将其发布至 npm", "使用 Github Actions 持续集成服务进行自动部署，方便更新文章", "引入了基于 LeanCloud 的无后端评论系统 Valine，来为静态博客网站添加评论功能", "开发了配套的脚手架，一键生成，方便用户略过繁琐的配置过程"]
+        }]
     }]
 }
