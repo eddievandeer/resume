@@ -2,6 +2,7 @@ import PersonalInfo from './PersonalInfo'
 import MyInternship from './MyInternship'
 import MySkills from './MySkills'
 import MyExperiences from './MyExperiences'
+import MyEvaluations from './MyEvaluations'
 import MyInput from './MyInput'
 import MySwitch from './MySwitch'
 import Drawer from './Drawer'
@@ -13,6 +14,7 @@ const COMPONENTS = [
     MyInternship,
     MySkills,
     MyExperiences,
+    MyEvaluations,
     MyInput,
     MySwitch,
     Drawer,
