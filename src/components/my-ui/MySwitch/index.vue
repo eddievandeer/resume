@@ -50,10 +50,8 @@ export default {
     },
     emits: ['update:modelValue', 'change', 'input'],
     setup(props, ctx) {
-        const isModelValue = ref(props.modelValue !== false)
-
         const checked = computed(() => {
-            return isModelValue.value ? props.modelValue : props.value
+            return props.modelValue
         })
 
         const input = ref(null)
