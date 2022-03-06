@@ -41,7 +41,7 @@
 </template>
 
 <script>
-    const scrollStep = 150
+    const scrollStep = 210
 
     import {
         reactive,
@@ -56,6 +56,7 @@
     import Internship from './Internship'
     import Skills from './Skills'
     import Experiences from './Experiences'
+    import Evaluations from './Evaluations.vue'
     import Theme from './Theme'
 
     export default {
@@ -64,6 +65,7 @@
             Internship,
             Skills,
             Experiences,
+            Evaluations,
             Theme
         },
         setup() {
@@ -78,16 +80,18 @@
             const internship = ref(true)
             const skills = ref(true)
             const experiences = ref(true)
+            const evaluations = ref(false)
 
             const parts = reactive({
                 internship,
                 skills,
-                experiences
+                experiences,
+                evaluations
             })
 
-            const components = ['info', 'internship', 'skills', 'experiences', 'theme']
+            const components = ['info', 'internship', 'skills', 'experiences', 'evaluations', 'theme']
 
-            const description = ['个人信息', '实习经历', '掌握技能', '项目经历', '主题设置']
+            const description = ['个人信息', '实习经历', '掌握技能', '项目经历', '自我评价', '主题设置']
 
             const handleScroll = (x, y) => {
                 navBar.value.scrollTo({
@@ -122,7 +126,7 @@
                 handleScroll(preScroll, 0)
             }
 
-            watch([internship, skills, experiences], (newParts, preParts) => {
+            watch([internship, skills, experiences, evaluations], (newParts, preParts) => {
                 const keys = Object.keys(parts)
                 newParts.forEach((part, index) => {
                     if(part == preParts[index]) return

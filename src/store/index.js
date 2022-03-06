@@ -50,6 +50,7 @@ export default createStore({
                 ]
             }
         ],
+        evaluation: ['自我评价'],
         parts: ['my-internship', 'my-skills', 'my-experiences'],
         theme: {
             type: 'normal',
